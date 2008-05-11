@@ -1,0 +1,43 @@
+require '~/autotest/sound/sound.rb'
+Autotest::Sound.sound_path = "~/autotest/sound/sound_fx/"
+
+require 'autotest/redgreen'
+require 'autotest/timestamp'
+# require 'autotest/growl'
+
+module Autotest::Growl
+  
+  def self.growl title, msg, img, pri=0, sticky=""
+    system "growlnotify -n autotest --image #{img} -p #{pri} -m #{msg.inspect} #{title} #{sticky}"
+  end
+  
+  Autotest.add_hook :ran_command do |at|
+    image_root = "~/.autotest_images"
+    results = [at.results].flatten.join("\n")
+    # output = results.slice(/(\d+)\stests,\s(\d+)\sassertions,\s(\d+)\sfailures,\s(\d+)\serrors/)
+    output = results.slice(/(\d+)\sexamples,\s(\d+)\sfailures/)
+    if output
+      # if $~[3].to_i > 0 || $~[4].to_i > 0
+      #   cnt = [(9 + $~[3].to_i + $~[4].to_i) / 10 * 10, 50].min
+      if $~[2].to_i > 0
+        cnt = [(18 + $~[3].to_i + $~[4].to_i) / 10 * 10, 50].min
+        growl "FAIL", "#{output}", "#{image_root}/fail#{cnt}.png", 2
+      else
+        growl "Pass", "#{output}", "#{image_root}/pass.png"
+      end
+    end
+  end
+
+end
+
+# Override autotest default magic deciding which test to run when
+# a file is changed : enable more flexible naming conventions
+# trading some of the efficiency: we rerun all the tests each time.
+#
+class Autotest
+
+  def tests_for_file(filename)
+    return Dir["test/**/*_test.rb"]
+  end 
+
+end
