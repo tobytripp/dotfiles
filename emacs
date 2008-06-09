@@ -1,11 +1,11 @@
 (global-font-lock-mode 1)
+(tool-bar-mode -1)
 
 (add-to-list 'load-path "~/.elisp")
 (add-to-list 'load-path "~/.elisp/mmm-mode-0.4.8")
 
 (autoload 'ruby-mode "ruby-mode" "Major mode for Ruby" t)
 (setq auto-mode-alist (cons '("\\.rb$" . ruby-mode) auto-mode-alist))
-(setq auto-mode-alist (cons '("\\.rhtml$" . html-mode) auto-mode-alist))
 
 (add-hook 'ruby-mode-hook
           (lambda()
@@ -18,7 +18,8 @@
             (set (make-local-variable 'indent-tabs-mode) 'nil)
             (set (make-local-variable 'tab-width) 2)
             (imenu-add-to-menubar "IMENU")
-            (define-key ruby-mode-map "C-m" 'newline-and-indent) ;Not sure if this line is 100% right but it works!
+            ;Not sure if this line is 100% right but it works!
+            (define-key ruby-mode-map "C-m" 'newline-and-indent)
             (require 'ruby-electric)
             (ruby-electric-mode t)
             ))
@@ -74,13 +75,14 @@
 (set-face-background 'mmm-output-submode-face  "LightGrey")
 (set-face-background 'mmm-code-submode-face    "white")
 (set-face-background 'mmm-comment-submode-face "lightgrey")
+
 (mmm-add-classes
  '((erb-code
     :submode ruby-mode
     :match-face (("<%#" . mmm-comment-submode-face)
                  ("<%=" . mmm-output-submode-face)
                  ("<%"  . mmm-code-submode-face))
-    :front "<%[#=]?"
+    :front "<%[#=-]?"
     :back "-?%>"
     :insert ((?% erb-code       nil @ "<%"  @ " " _ " " @ "%>" @)
              (?# erb-comment    nil @ "<%#" @ " " _ " " @ "%>" @)
@@ -91,5 +93,6 @@
             (setq mmm-classes '(erb-code))
             (mmm-mode-on)))
 (add-to-list 'auto-mode-alist '("\.rhtml$" . html-mode))
+(add-to-list 'auto-mode-alist '("\.html.erb$" . html-mode))
 
 
