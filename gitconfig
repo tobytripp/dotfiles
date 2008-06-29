@@ -1,0 +1,17 @@
+[user]
+	name = Toby
+	email = toby.tripp+git@gmail.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+[diff]
+	renames = true
+[alias]
+	changes=diff --name-status -r
+	st=status
+	co=checkout
+	ci=commit
+[gui]
+	recentrepo = /Users/toby/Code/Ruby/specr
