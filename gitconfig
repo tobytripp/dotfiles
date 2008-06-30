@@ -12,6 +12,6 @@
 	changes=diff --name-status -r
 	st=status
 	co=checkout
-	ci=commit
+	ci=commit -a
 [gui]
 	recentrepo = /Users/toby/Code/Ruby/specr
