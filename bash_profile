@@ -1,5 +1,10 @@
 # Put /usr/local/bin ahead of /usr/bin to preempt built-in Ruby
-PATH=/usr/local/bin:$PATH
+PATH=/usr/local/bin:/opt/local/bin:/opt/local/sbin:$PATH
+MANPATH=/opt/local/share/man:$MANPATH
+
+export TERM=xterm-color
+export CLICOLOR=true
+export LSCOLORS=bxfxcxdxbxegedabagacad
 
 export HISTCONTROL=erasedups
 export HISTSIZE=10000
