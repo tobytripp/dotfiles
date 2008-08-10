@@ -15,3 +15,5 @@
 	ci=commit -a
 [gui]
 	recentrepo = /Users/toby/Code/Ruby/specr
+[core]
+	excludesfile = /Users/toby/.gitignore
