@@ -1,8 +1,17 @@
+
 (global-font-lock-mode 1)
 (tool-bar-mode -1)
+(setq transient-mark-mode t)
 
-(add-to-list 'load-path "~/.elisp")
-(add-to-list 'load-path "~/.elisp/mmm-mode-0.4.8")
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/mmm-mode-0.4.8")
+(add-to-list 'load-path "~/.emacs.d/eieio-0.17")
+(add-to-list 'load-path "~/.emacs.d/speedbar-0.14beta4")
+(add-to-list 'load-path "~/.emacs.d/semantic-1.4.4")
+(add-to-list 'load-path "~/.emacs.d/emacs-rails")
+(add-to-list 'load-path "~/.emacs.d/ecb-2.32")
 
 (autoload 'ruby-mode "ruby-mode" "Major mode for Ruby" t)
 (setq auto-mode-alist (cons '("\\.rb$" . ruby-mode) auto-mode-alist))
@@ -34,14 +43,10 @@
 
 
 ;These lines are required for ECB
-(add-to-list 'load-path "~/.elisp/eieio-0.17")
-(add-to-list 'load-path "~/.elisp/speedbar-0.14beta4")
-(add-to-list 'load-path "~/.elisp/semantic-1.4.4")
 (setq semantic-load-turn-everything-on t)
 (require 'semantic-load)
 
 ; This installs ecb - it is activated with M-x ecb-activate
-(add-to-list 'load-path "~/.elisp/ecb-2.32")
 (require 'ecb-autoloads)
 
 (setq ecb-layout-name "left14")
@@ -64,10 +69,8 @@
 (require 'find-recursive)
 ; The rails require needs to go after ECB
 ; otherwise it loads a new incompatible speedbar
-(add-to-list 'load-path "~/.elisp/emacs-rails")
 (require 'rails)
 
-(require 'mmm-mode)
 (require 'mmm-mode)
 (require 'mmm-auto)
 (setq mmm-global-mode 'maybe)
