@@ -33,7 +33,7 @@
             (ruby-electric-mode t)
             ))
 
-; Install mode-compile to give friendlier compiling support!
+; Install mode-compile to give friendlier compiling support
 (autoload 'mode-compile "mode-compile"
    "Command to compile current buffer file based on the major mode" t)
 (global-set-key "\C-cc" 'mode-compile)
@@ -98,4 +98,7 @@
 (add-to-list 'auto-mode-alist '("\.rhtml$" . html-mode))
 (add-to-list 'auto-mode-alist '("\.html.erb$" . html-mode))
 
-
+(global-set-key [(meta /)] (make-hippie-expand-function
+                               '(try-expand-dabbrev-visible
+                                 try-expand-dabbrev
+                                 try-expand-dabbrev-all-buffers) t))

@@ -1,8 +1,17 @@
 _bold=$(tput bold)
 _normal=$(tput sgr0)
 
+BLUE=`tput setf 1`
+GREEN=`tput setf 2`
+CYAN=`tput setf 3`
+RED=`tput setf 4`
+MAGENTA=`tput setf 5`
+YELLOW=`tput setf 6`
+WHITE=`tput setf 7`
+
 __prompt_command() {
 	local vcs base_dir sub_dir ref last_command
+	
 	sub_dir() {
 		local sub_dir
 		sub_dir=$(stat -f "${PWD}")
