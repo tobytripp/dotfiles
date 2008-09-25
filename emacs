@@ -1,4 +1,3 @@
-
 (global-font-lock-mode 1)
 (tool-bar-mode -1)
 (setq transient-mark-mode t)
@@ -12,6 +11,12 @@
 (add-to-list 'load-path "~/.emacs.d/semantic-1.4.4")
 (add-to-list 'load-path "~/.emacs.d/emacs-rails")
 (add-to-list 'load-path "~/.emacs.d/ecb-2.32")
+(add-to-list 'load-path "~/.emacs.d/yasnippet")
+(add-to-list 'load-path "~/.emacs.d/color-theme")
+
+(require 'color-theme)
+(load-file "~/.emacs.d/color-theme/themes/pastels-on-dark-theme.el")
+(color-theme-pastels-on-dark)
 
 (autoload 'ruby-mode "ruby-mode" "Major mode for Ruby" t)
 (setq auto-mode-alist (cons '("\\.rb$" . ruby-mode) auto-mode-alist))
@@ -57,11 +62,18 @@
          (0.2564102564102564 . 0.23728813559322035)))))
 
 (setq ecb-source-path
-      (quote
+    (quote
        ("~/Code/ThoughtWorks")
        ("~/Code/Ruby")
-))
+    )
+)
 
+; Javascript mode
+(autoload 'js2-mode "js2" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+ 
+(setq js2-basic-offset 2)
+(setq js2-use-font-lock-faces t)
 
 
 ; needed for rails mode
@@ -102,3 +114,20 @@
                                '(try-expand-dabbrev-visible
                                  try-expand-dabbrev
                                  try-expand-dabbrev-all-buffers) t))
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(ecb-source-path (quote (("/" "/") (#("/Users/toby/Code/Ruby/community.branch.svn" 0 42 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "community") ("/Users/toby/Code/System" "system") ("/Users/toby/Code/Jahva/mmh/mmh-web-mvn/src/main/webapp" "mmh-rails"))))
+ '(mouse-wheel-progressive-speed nil)
+ '(mouse-wheel-scroll-amount (quote (1 ((shift) . 1) ((control))))))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(mmm-code-submode-face ((t (:background "Grey15"))))
+ '(mmm-comment-submode-face ((t (:background "#212F2F"))))
+ '(mmm-default-submode-face ((t (:background "Grey15"))))
+ '(mmm-output-submode-face ((t (:background "Grey15")))))
