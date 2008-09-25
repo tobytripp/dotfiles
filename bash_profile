@@ -7,6 +7,7 @@ export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home
 PATH=~/bin:/usr/local/bin:$PATH:/opt/local/bin:/opt/local/sbin:$JRUBY_HOME/bin:$MYSQL_HOME/bin
 MANPATH=/opt/local/share/man:$MANPATH
 
+export EDITOR=vim
 export TERM=xterm-color
 export CLICOLOR=true
 export LSCOLORS=bxfxcxdxbxegedabagacad
