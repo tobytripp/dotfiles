@@ -2,7 +2,13 @@
 (tool-bar-mode -1)
 (setq transient-mark-mode t)
 
+(setq inhibit-startup-message t)
 (fset 'yes-or-no-p 'y-or-n-p)
+(setq require-final-newline t)
+(setq next-line-add-newlines nil) ; don't add new lines if scrolling down at bottom
+(setq-default indent-tabs-mode nil)
+
+(global-set-key "\C-m" 'newline-and-indent)
 
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/mmm-mode-0.4.8")
@@ -14,9 +20,11 @@
 (add-to-list 'load-path "~/.emacs.d/yasnippet")
 (add-to-list 'load-path "~/.emacs.d/color-theme")
 
-(require 'color-theme)
-(load-file "~/.emacs.d/color-theme/themes/pastels-on-dark-theme.el")
-(color-theme-pastels-on-dark)
+;(require 'color-theme)
+;(load-file "~/.emacs.d/color-theme/themes/pastels-on-dark-theme.el")
+;(color-theme-pastels-on-dark)
+(load-file "~/.emacs.d/.emacs-color-theme")
+(my-color-theme)
 
 (autoload 'ruby-mode "ruby-mode" "Major mode for Ruby" t)
 (setq auto-mode-alist (cons '("\\.rb$" . ruby-mode) auto-mode-alist))
@@ -110,15 +118,20 @@
 (add-to-list 'auto-mode-alist '("\.rhtml$" . html-mode))
 (add-to-list 'auto-mode-alist '("\.html.erb$" . html-mode))
 
-(global-set-key [(meta /)] (make-hippie-expand-function
-                               '(try-expand-dabbrev-visible
-                                 try-expand-dabbrev
-                                 try-expand-dabbrev-all-buffers) t))
+(global-set-key [(meta /)] 
+                (make-hippie-expand-function
+                 '(try-expand-dabbrev-visible
+                   try-expand-dabbrev
+                   try-expand-dabbrev-from-kill
+                   try-expand-dabbrev-all-buffers) t)
+                )
+
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
+ '(ecb-layout-window-sizes (quote (("left-analyse" (0.32592592592592595 . 0.39622641509433965) (0.32592592592592595 . 0.1509433962264151) (0.32592592592592595 . 0.2830188679245283) (0.32592592592592595 . 0.1509433962264151)) ("left3" (0.32592592592592595 . 0.39622641509433965) (0.32592592592592595 . 0.24528301886792453) (0.32592592592592595 . 0.33962264150943394)) ("left14" (0.2564102564102564 . 0.6949152542372882) (0.2564102564102564 . 0.23728813559322035)))))
  '(ecb-source-path (quote (("/" "/") (#("/Users/toby/Code/Ruby/community.branch.svn" 0 42 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "community") ("/Users/toby/Code/System" "system") ("/Users/toby/Code/Jahva/mmh/mmh-web-mvn/src/main/webapp" "mmh-rails"))))
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-scroll-amount (quote (1 ((shift) . 1) ((control))))))
