@@ -1,0 +1,14 @@
+;; Object semantic.cache
+;; SEMANTICDB Tags save file
+(semanticdb-project-database "semantic.cache"
+  :file "semantic.cache"
+  :tables (list 
+   (semanticdb-table "find-recursive.el"
+    :file "find-recursive.el"
+    :pointmax 4670
+    :major-mode 'emacs-lisp-mode
+    :tokens '(("cl" include nil nil nil [1032 1045]) ("find-recursive-exclude-files" variable nil (quote (".*.class$" ".*~$" ".*.elc$")) nil "List of regular expressions of files to be excluded when recursively searching for files." nil [1047 1259]) ("find-file-recursively" function nil ("file-regexp" "directory") nil (interactive "sFile name to search for recursively: 
+DIn directory: ") nil [1261 2138]) ("find-recursive-directory-relative-files" function nil ("directory" "relative-directory" "file-regexp") nil (let* ((full-dir (concat directory "/" relative-directory)) (matches (mapcar (function (lambda (x) (concat relative-directory x))) (find-recursive-filter-out (quote (nil)) (directory-files full-dir nil file-regexp nil t)))) (inner (mapcar (function (lambda (dir) (find-recursive-directory-relative-files directory (concat relative-directory dir "/") file-regexp))) (find-recursive-filter-out (quote (nil "\\." "\\.\\.")) (directory-files full-dir nil ".*" nil (quote directories)))))) (mapcar (function (lambda (dir) (setq matches (append matches dir)))) inner) matches) nil [2140 2900]) ("find-recursive-filter-out" function nil ("remove-list" "list") nil "Remove all the elements in *remove-list* from *list*" nil [2902 3358]) ("find-recursive-running-xemacs" variable nil (string-match "XEmacs\\|Lucid" emacs-version) nil nil nil [3360 3444]) ("if" code nil [3446 4578]) ("global-set-key" code nil [4580 4642]) ("find-recursive" package nil nil nil [4644 4669]))
+    )
+   )
+  )
