@@ -40,8 +40,6 @@
             (set (make-local-variable 'indent-tabs-mode) 'nil)
             (set (make-local-variable 'tab-width) 2)
             (imenu-add-to-menubar "IMENU")
-            ;Not sure if this line is 100% right but it works!
-            (define-key ruby-mode-map "C-m" 'newline-and-indent)
             (require 'ruby-electric)
             (ruby-electric-mode t)
             ))

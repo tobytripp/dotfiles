@@ -595,7 +595,7 @@
      (message-mml-face ((t (:foreground "ForestGreen"))))
      (message-separator-face ((t (:foreground "chocolate"))))
      (message-url ((t (:bold t :weight bold))))
-     (minibuffer-prompt ((t (:foreground "dark blue"))))
+     (minibuffer-prompt ((t (:foreground "white"))))
      (mmm-cleanup-submode-face ((t (:background "Wheat"))))
      (mmm-code-submode-face ((t (:background "Grey15"))))
      (mmm-comment-submode-face ((t (:background "#212F2F"))))
