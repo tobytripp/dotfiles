@@ -144,3 +144,14 @@
  '(mmm-comment-submode-face ((t (:background "#212F2F"))))
  '(mmm-default-submode-face ((t (:background "Grey15"))))
  '(mmm-output-submode-face ((t (:background "Grey15")))))
+
+
+;;; This was installed by package-install.el.
+;;; This provides support for the package system and
+;;; interfacing with ELPA, the package archive.
+;;; Move this code earlier if you want to reference
+;;; packages in your .emacs.
+(when
+    (load
+     (expand-file-name "~/.emacs.d/elpa/package.el"))
+  (package-initialize))
