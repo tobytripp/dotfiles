@@ -26,6 +26,8 @@
 (load-file "~/.emacs.d/.emacs-color-theme")
 (my-color-theme)
 
+(global-hl-line-mode 1)
+
 (require 'git)
 
 (autoload 'ruby-mode "ruby-mode" "Major mode for Ruby" t)

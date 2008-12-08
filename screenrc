@@ -1,0 +1,4 @@
+hardstatus on
+hardstatus alwayslastline
+hardstatus string "%{.kW}%-Lw%{.bW}%n %t%{-}%+Lw %=%{..G} %l %u %H %Y-%m-%d %c "
+
