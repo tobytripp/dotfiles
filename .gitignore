@@ -3,3 +3,6 @@ auto-save-list
 .saves*
 *.cache
 *~
+
+emacs.d/elpa/archive-contents
+emacs.d/elpa/builtin-packages

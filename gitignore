@@ -13,3 +13,6 @@ profile
 # Textmate noise
 *.TM_Completions.txt.gz
 ._*
+
+# Emacs noise
+*~
