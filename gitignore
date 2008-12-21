@@ -12,3 +12,4 @@ profile
 
 # Textmate noise
 *.TM_Completions.txt.gz
+._*
