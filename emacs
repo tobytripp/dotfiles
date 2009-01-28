@@ -30,6 +30,9 @@
 
 (require 'git)
 
+(require 'anything-config)
+
+
 (autoload 'ruby-mode "ruby-mode" "Major mode for Ruby" t)
 (setq auto-mode-alist (cons '("\\.rb$" . ruby-mode) auto-mode-alist))
 
@@ -47,6 +50,7 @@
             (require 'ruby-electric)
             (ruby-electric-mode t)
             ))
+
 
 ; Install mode-compile to give friendlier compiling support
 (autoload 'mode-compile "mode-compile"
