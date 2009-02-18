@@ -17,3 +17,5 @@
 	recentrepo = /Users/toby/Code/Ruby/specr
 [core]
 	excludesfile = /Users/toby/.gitignore
+[mirror]
+	summary = true

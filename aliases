@@ -1,0 +1,9 @@
+alias ruby186=/usr/local/ruby-1.8.6/bin/ruby
+alias rake186=/usr/local/ruby-1.8.6/bin/rake
+alias gem186=/usr/local/ruby-1.8.6/bin/gem
+
+alias use_ruby_186='sudo ln -fhs /usr/local/ruby-1.8.6    /usr/local/ruby'
+alias use_ruby_187='sudo ln -fhs /usr/local/ruby-1.8.7    /usr/local/ruby'
+alias use_ruby_191='sudo ln -fhs /usr/local/ruby-1.9.1-p0 /usr/local/ruby'
+
+alias sl=ls

@@ -8,6 +8,9 @@
 (setq next-line-add-newlines nil) ; don't add new lines if scrolling down at bottom
 (setq-default indent-tabs-mode nil)
 
+;; Software that beeps is stupid
+(setq visible-bell t)
+
 (global-set-key "\C-m" 'newline-and-indent)
 
 (add-to-list 'load-path "~/.emacs.d")
@@ -30,8 +33,29 @@
 
 (require 'git)
 
-(require 'anything-config)
+(require 'filecache)
+(defun rails-add-proj-to-file-cache (dir)
+  "Adds all the ruby and html file recursively in cwd to file cache"
+  (interactive "DAdd directory: ")
+    (file-cache-clear-cache)
+    (file-cache-add-directory-recursively dir
+       (regexp-opt (list ".rb" ".rhtml" ".xml" ".js" ".yml" ".html.erb")))
+    (file-cache-delete-file-regexp "\\.svn"))
 
+(iswitchb-mode 1)
+(require 'iswitchb-fc)
+(defun iswitchb-local-keys ()
+      (mapc (lambda (K) 
+	      (let* ((key (car K)) (fun (cdr K)))
+    	        (define-key iswitchb-mode-map (edmacro-parse-keys key) fun)))
+	    '(("<right>" . iswitchb-next-match)
+	      ("<left>"  . iswitchb-prev-match)
+	      ("<up>"    . ignore             )
+	      ("<down>"  . ignore             ))))
+    (add-hook 'iswitchb-define-mode-map-hook 'iswitchb-local-keys)
+
+(require 'anything-config)
+(global-set-key (kbd "C-c SPC") 'anything)
 
 (autoload 'ruby-mode "ruby-mode" "Major mode for Ruby" t)
 (setq auto-mode-alist (cons '("\\.rb$" . ruby-mode) auto-mode-alist))

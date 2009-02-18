@@ -4,3 +4,7 @@
 --follow
 --group
 --all
+--type-set 
+--ignore-dir=vendor
+--ignore-dir=log
+--ignore-dir=logs

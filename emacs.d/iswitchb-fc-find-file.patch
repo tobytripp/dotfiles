@@ -1,0 +1,56 @@
+--- iswitchb-fc.el      2006/12/26 08:12:17     1.1
++++ iswitchb-fc.el      2006/12/26 09:53:29     1.3
+@@ -157,27 +157,36 @@
+       (setq result-names (append result-names tail-rn))
+       (setq result-triplets (append result-triplets tail-rt)))
+ 
++    (setq iswitchb-exit nil)
+     (let ((choice (iswitchb-fc-icompleting-read
+                  "Switch to: " result-names))
+          (buf nil))
+-      (when choice
+-       (let* ((pos (position choice result-names))
+-              (chosen-triplet (and pos (nth pos result-triplets))))
+-         (if (not chosen-triplet)
+-             (setq buf choice)
+-           (cond
+-            ((equal (car chosen-triplet) 'buf)
+-             (setq buf (cadr chosen-triplet)))
+-            ((equal (car chosen-triplet) 'fc)
+-             (save-excursion
+-               (find-file (concat
+-                           (nth 2 chosen-triplet)
+-                           (nth 1 chosen-triplet)))
+-               (setq buf (current-buffer))))
+-            (t (error "Internal error in iswitchb-fc"))))))
+-      (iswitchb-visit-buffer buf)
+-      (get-buffer buf))))
++      (if (iswitchb-exit-handler)
++          (current-buffer)
++        (when choice
++          (let* ((pos (position choice result-names))
++                 (chosen-triplet (and pos (nth pos result-triplets))))
++            (if (not chosen-triplet)
++                (setq buf choice)
++              (cond
++               ((equal (car chosen-triplet) 'buf)
++                (setq buf (cadr chosen-triplet)))
++               ((equal (car chosen-triplet) 'fc)
++                (save-excursion
++                  (find-file (concat
++                              (nth 2 chosen-triplet)
++                              (nth 1 chosen-triplet)))
++                  (setq buf (current-buffer))))
++               (t (error "Internal error in iswitchb-fc"))))))
++        (iswitchb-visit-buffer buf)
++        (get-buffer buf)))))
+ (defalias 'iswitchb 'iswitchb-fc)
+ 
++(defun iswitchb-exit-handler ()
++  (cond ((eq iswitchb-exit 'findfile)
++         (call-interactively 'find-file))
++        (t
++         nil)))
++
+ (provide 'iswitchb-fc)
+ ;;; iswitchb-fc.el ends here
