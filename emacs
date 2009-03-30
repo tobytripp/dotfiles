@@ -83,7 +83,7 @@
 (autoload 'mode-compile-kill "mode-compile"
  "Command to kill a compilation launched by `mode-compile'" t)
 (global-set-key "\C-ck" 'mode-compile-kill)
-
+;; (setq ruby-command "jruby")
 
 ;These lines are required for ECB
 (setq semantic-load-turn-everything-on t)

@@ -19,3 +19,6 @@
 #
 # Default: 3 (pmset -g | grep hibernatemode)
 pmset -a hibernatemode 0
+
+# Do NOT auto switch spaces when switching applications
+defaults write com.apple.Dock workspaces-auto-swoosh -bool NO
