@@ -1,0 +1,7 @@
+# Erase duplicates
+export HISTCONTROL=erasedups
+# resize history size
+export HISTSIZE=10000
+# append to bash_history if Terminal.app quits
+shopt -s histappend
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
