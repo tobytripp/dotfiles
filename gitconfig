@@ -1,6 +1,6 @@
 [user]
-	name = Toby
-	email = toby.tripp+git@gmail.com
+	name = Sudhindra Rao[betarelease]
+	email = sudhindra.r.rao@gmail.com
 [color]
 	diff = auto
 	status = auto
@@ -14,8 +14,8 @@
 	co=checkout
 	ci=commit -a
 [gui]
-	recentrepo = /Users/toby/Code/Ruby/specr
+	recentrepo = #/Users/toby/Code/Ruby/specr
 [core]
-	excludesfile = /Users/toby/.gitignore
+	excludesfile = /Users/ThoughtWorks/.gitignore
 [mirror]
 	summary = true

@@ -3,7 +3,7 @@ source ~/.bashrc
 source ~/.bash_vcs.sh
 source ~/.bash_login
 
-source ~/.jumplist/j.sh
+# source ~/.jumplist/j.sh
 
 _mategem()
 {

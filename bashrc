@@ -12,10 +12,6 @@ MANPATH=/opt/local/share/man:$MANPATH
 
 export EDITOR=vim
 
-export HISTCONTROL=erasedups
-export HISTSIZE=10000
-shopt -s histappend
+source ~/.history
 
-export TERM=xterm-color
-export CLICOLOR=true
-export LSCOLORS=bxfxcxdxbxegedabagacad
+source ~/.terminal_colors
