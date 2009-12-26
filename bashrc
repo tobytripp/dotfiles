@@ -7,6 +7,8 @@ export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home
 # Put /usr/local/bin ahead of /usr/bin to preempt built-in Ruby
 PATH=~/bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:$JAVA_HOME/bin:$MYSQL_HOME/bin:$PATH
 PATH=$PATH:/usr/local/git/bin:/System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin:$JRUBY_HOME/bin
+PATH=$PATH:/usr/local/git/libexec/git-core/
+
 
 MANPATH=/opt/local/share/man:$MANPATH
 
