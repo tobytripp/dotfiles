@@ -8,4 +8,3 @@ alias use_ruby_191='sudo ln -fhs /usr/local/ruby-1.9.1-p0 /usr/local/ruby'
 
 alias sl=ls
 alias up='cd ..;'
-

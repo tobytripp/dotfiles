@@ -11,6 +11,21 @@
 ;; Software that beeps is stupid
 (setq visible-bell t)
 
+;; Let's not litter emacs poop everywhere we go
+(defvar user-temporary-file-directory
+  (concat temporary-file-directory user-login-name "/"))
+(make-directory user-temporary-file-directory t)
+
+(setq backup-by-copying t)
+(setq backup-directory-alist
+      `(("." . ,user-temporary-file-directory)
+        (,tramp-file-name-regexp nil)))
+
+(setq auto-save-list-file-prefix
+      (concat user-temporary-file-directory ".auto-saves-"))
+(setq auto-save-file-name-transforms
+      `((".*" ,user-temporary-file-directory t)))
+
 (global-set-key "\C-m" 'newline-and-indent)
 
 (add-to-list 'load-path "~/.emacs.d")
@@ -109,10 +124,16 @@
 ; Javascript mode
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
- 
+
 (setq js2-basic-offset 2)
 (setq js2-use-font-lock-faces t)
 
+; Javascript mode to use in MMM (JS2 is too heavy to be loaded once for each segment)
+(autoload 'javascript-mode "javascript-mode" nil t)
+
+(add-to-list 'auto-mode-alist '("\\.css\\'" . css-mode))
+(setq cssm-indent-function #'cssm-c-style-indenter)
+(setq cssm-indent-level '2)
 
 ; needed for rails mode
 (require 'snippet)
@@ -129,8 +150,10 @@
 (set-face-background 'mmm-code-submode-face    "white")
 (set-face-background 'mmm-comment-submode-face "lightgrey")
 
-(mmm-add-classes
- '((erb-code
+(mmm-add-group
+ 'fancy-html
+ '(
+   (erb-code
     :submode ruby-mode
     :match-face (("<%#" . mmm-comment-submode-face)
                  ("<%=" . mmm-output-submode-face)
@@ -140,12 +163,49 @@
     :insert ((?% erb-code       nil @ "<%"  @ " " _ " " @ "%>" @)
              (?# erb-comment    nil @ "<%#" @ " " _ " " @ "%>" @)
              (?= erb-expression nil @ "<%=" @ " " _ " " @ "%>" @))
-    )))
-(add-hook 'html-mode-hook
-          (lambda ()
-            (setq mmm-classes '(erb-code))
-            (mmm-mode-on)))
-(add-to-list 'auto-mode-alist '("\.rhtml$" . html-mode))
+    )
+
+   (html-css-attribute
+    :submode css-mode
+    :face mmm-declaration-submode-face
+    :front "style=\""
+    :back  "\""
+    )
+
+   (html-css-tag
+    :submode css-mode
+    :front "css\">"
+    :back  "</"
+    )
+
+   (html-js-tag
+    :submode javascript-mode
+    :front "script[^>]*>"
+    :back  "</"
+    )
+   ))
+(add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil html-js))
+(add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil embedded-css))
+(add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil fancy-html))
+
+;; (mmm-add-classes
+;;  '((erb-code
+;;     :submode ruby-mode
+;;     :match-face (("<%#" . mmm-comment-submode-face)
+;;                  ("<%=" . mmm-output-submode-face)
+;;                  ("<%"  . mmm-code-submode-face))
+;;     :front "<%[#=-]?"
+;;     :back "-?%>"
+;;     :insert ((?% erb-code       nil @ "<%"  @ " " _ " " @ "%>" @)
+;;              (?# erb-comment    nil @ "<%#" @ " " _ " " @ "%>" @)
+;;              (?= erb-expression nil @ "<%=" @ " " _ " " @ "%>" @))
+;;     )))
+;; (add-hook 'html-mode-hook
+;;           (lambda ()
+;;             (setq mmm-classes '(erb-code))
+;;             (mmm-mode-on)))
+
+(add-to-list 'auto-mode-alist '("\.rhtml$"    . html-mode))
 (add-to-list 'auto-mode-alist '("\.html.erb$" . html-mode))
 
 (global-set-key [(meta /)] 
