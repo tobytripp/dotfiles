@@ -52,13 +52,17 @@ function detect_vcs {
 		alias st="$VCS status"
 		alias d="$VCS diff"
 		alias up="pull"
-		base_dir="$(basename "${base_dir}")"
 		__vcs_prefix="($VCS)"
 		__vcs_branch_tag="[$vcs_branch]"
 	else
 	  __vcs_prefix=''
 	  __vcs_branch_tag=''
 	fi
+	
+	base_dir="$(basename "${base_dir}")"
+	__cwd=${PWD/$HOME/'~'}
+	__cwd="$(basename "${__cwd}")"
+	__cwd=${__cwd/$base_dir/\/}
 }
 
 function prompt {
@@ -71,7 +75,7 @@ function prompt {
   local  LIGHT_GRAY="\[\033[0;37m\]"
   
   PROMPT_COMMAND=detect_vcs
-  PS1="\h:$GREEN\${__vcs_prefix}$BLUE\${base_dir}\$(check_git_changes)\${__vcs_branch_tag}$BLUE\W$NORMAL \$ "
+  PS1="\h:$GREEN\${__vcs_prefix}$BLUE\${base_dir}\$(check_git_changes)\${__vcs_branch_tag}$BLUE\${__cwd}$NORMAL \$ "
   # PS2='> '
   # PS4='+ '
 }
