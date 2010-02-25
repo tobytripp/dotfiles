@@ -72,8 +72,8 @@ function prompt {
   
   PROMPT_COMMAND=detect_vcs
   PS1="\h:$GREEN\${__vcs_prefix}$BLUE\${base_dir}\$(check_git_changes)\${__vcs_branch_tag}$BLUE\W$NORMAL \$ "
-  PS2='> '
-  PS4='+ '
+  # PS2='> '
+  # PS4='+ '
 }
 prompt
 
