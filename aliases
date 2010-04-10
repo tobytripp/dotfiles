@@ -25,4 +25,6 @@ alias del="/bin/rm -rf"
 alias rm="~/rm"
 alias untar="tar -xvf"
 
+alias ubuntu='ssh sudhindra@sudhindra.gotdns.com'
+
 

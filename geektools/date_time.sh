@@ -1,4 +1,2 @@
-date +%d
-date +%B
-date +%A
+date +%d-%b-%a
 date +"%I:%M"

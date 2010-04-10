@@ -2,6 +2,7 @@ source ~/.bashrc
 
 source ~/.bash_vcs.sh
 source ~/.bash_login
+source ~/.cdargs.sh
 
 # source ~/.jumplist/j.sh
 

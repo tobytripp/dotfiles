@@ -5,7 +5,7 @@ export ANT_HOME=/opt/local/share/java/apache-ant
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home
 
 # Put /usr/local/bin ahead of /usr/bin to preempt built-in Ruby
-PATH=~/bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:$JAVA_HOME/bin:$MYSQL_HOME/bin:$PATH
+PATH=~/bin:/usr/local/bin:/usr/bin:/opt/local/bin:/opt/local/sbin:$JAVA_HOME/bin:$MYSQL_HOME/bin:$PATH
 PATH=$PATH:/usr/local/git/bin:/System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin:$JRUBY_HOME/bin
 PATH=$PATH:/usr/local/git/libexec/git-core/
 
@@ -17,3 +17,7 @@ export EDITOR=vim
 source ~/.history
 
 source ~/.terminal_colors
+
+if [[ -s /Users/ThoughtWorks/.rvm/scripts/rvm ]] ; then 
+  source /Users/ThoughtWorks/.rvm/scripts/rvm ; 
+fiif [[ -s "$HOME/.rvm/scripts/rvm" ]]  ; then source "$HOME/.rvm/scripts/rvm" ; fi
