@@ -1,21 +1,5 @@
 # Settings for non-login shells
-
-# TODO: These PATH settings should be machine-specific
-export JRUBY_HOME=/usr/local/lib/jruby
-export MYSQL_HOME=/usr/local/mysql
-export ANT_HOME=/opt/local/share/java/apache-ant
-export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home
-export MONGODB_HOME=/usr/local/mongodb
-
 export JEWELER_OPTS="--rspec"
-
-PATH=~/bin:/usr/local/bin:/usr/local/sbin:$JAVA_HOME/bin:$JRUBY_HOME/bin:$MYSQL_HOME/bin:$MONGODB_HOME/bin:$PATH
-PATH=$PATH:/usr/local/git/bin:/usr/local/ruby/bin
-
-# MANPATH=/opt/local/share/man:$MANPATH
-
-export EDITOR='mate -w'
-export ARCHFLAGS="-arch x86_64"
 
 export HISTCONTROL=erasedups
 export HISTSIZE=10000
@@ -25,7 +9,23 @@ export ALTERNATE_EDITOR=""
 export CLICOLOR=true
 export LSCOLORS=bxfxcxdxbxegedabagacad
 
-export CDPATH=:$HOME/Code/Ruby:$HOME/Code/ThoughtWorks/Code
+SCRIPT_PATH="${BASH_SOURCE[0]}"
+if [[ -h $SCRIPT_PATH ]] ; then
+    while [[ -h $SCRIPT_PATH ]] ; do SCRIPT_PATH=`readlink $SCRIPT_PATH`; done
+fi
+
+SCRIPT_DIR=`dirname $SCRIPT_PATH`
+
+# Load host-specific settings, if any
+if [[ -d $SCRIPT_DIR/`hostname` ]]; then
+    HOST_SETTINGS_DIR=$SCRIPT_DIR/`hostname`
+elif [[ -d $HOME/.`hostname` ]]; then
+    HOST_SETTINGS_DIR=$HOME/.`hostname`
+fi
+
+if [[ -d $HOST_SETTINGS_DIR ]] ; then
+    for file in $HOST_SETTINGS_DIR/*; do source $file; done
+fi
 
 # rvm-install added:
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi

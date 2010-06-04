@@ -21,3 +21,10 @@ configuration, a simple bashrc, and the sort.
 Install with:
     bash < <( curl http://github.com/tobytripp/dotfiles/raw/master/remote-install.sh )
 
+
+Host-specific Settings
+----------------------
+
+Bash settings specific to a particular host may be stored in
+$HOME/.`hostname`  Any files in that directory will be sourced by
+.bashrc when logged into that host.
