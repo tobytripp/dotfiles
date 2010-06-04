@@ -1,2 +1,3 @@
 alias sl=ls
 alias up='cd ..;'
+alias rtags="find . -name '*.rb' | xargs /usr/local/bin/ctags -a -e -f TAGS"
