@@ -6,7 +6,7 @@
 	status = auto
 	branch = auto
 	interactive = auto
-	ui = true
+	ui = auto
 [diff]
 	renames = true
 [alias]
