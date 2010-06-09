@@ -19,3 +19,12 @@
 #
 # Default: 3 (pmset -g | grep hibernatemode)
 pmset -a hibernatemode 0
+
+# Do NOT auto switch spaces when switching applications
+defaults write com.apple.Dock workspaces-auto-swoosh -bool NO
+
+# Get rid of the perspective dock
+defaults write com.apple.dock no-glass 1
+
+# Arrows link to library instead of iTunes store
+defaults write com.apple.iTunes invertStoreLinks true

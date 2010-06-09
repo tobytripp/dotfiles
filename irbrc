@@ -1,5 +1,6 @@
 require "rubygems" rescue nil
 require "wirble"
+require "looksee/shortcuts" rescue nil
 
 require 'what_methods'
 ARGV.concat [ "--readline", "--prompt-mode", "simple" ]

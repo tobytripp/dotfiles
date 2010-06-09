@@ -4,16 +4,13 @@ source ~/.bashrc
 source ~/.bash_login
 source ~/.cdargs.sh
 
-# source ~/.jumplist/j.sh
+source ~/.jumplist/j.sh
+source ~/.mategem.sh
 
-# _mategem()
-# {
-#     local curw
-#     COMPREPLY=()
-#     curw=${COMP_WORDS[COMP_CWORD]}
-#     local gems="$(gem environment gemdir)/gems"
-#     COMPREPLY=($(compgen -W '$(ls $gems)' -- $curw));
-#     return 0
-# }
-# 
-# complete -F _mategem -o dirnames mategem
+source ~/bin/cdargs-bash.sh
+
+# MacPorts Installer addition on 2009-12-21_at_09:37:47: adding an appropriate PATH variable for use with MacPorts.
+if [[ id /opt/local/bin ]]; then
+    export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+fi
+# Finished adapting your PATH environment variable for use with MacPorts.
