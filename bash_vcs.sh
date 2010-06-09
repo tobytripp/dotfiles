@@ -67,7 +67,6 @@ __prompt_command() {
     alias revert="bzr revert"
   }
   
-
   git_dir || svn_dir || bzr_dir
 
   if [ -n "$vcs" ]; then

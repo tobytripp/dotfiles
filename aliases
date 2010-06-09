@@ -8,21 +8,17 @@ alias use_ruby_191='sudo ln -fhs /usr/local/ruby-1.9.1-p0 /usr/local/ruby'
 
 alias sl=ls
 
-
-alias 'dir'='ls -la --color | more'
+alias 'dir'='ls -la | more'
 alias 'port'='/opt/local/bin/port'
-alias 'twu_server'='ssh trainer@192.168.4.189'
 alias 'm'='mate'
 alias 'o'='open'
 alias gemdoc='gem environment gemdir'/doc
 alias restart_vpn='sudo /System/Library/StartupItems/CiscoVPN/CiscoVPN restart'
 alias home="cd ~ ; ls"
 alias cp="cp -i"
-alias ls="ls -aFlh --color"
 alias mv="mv -i"
 alias ps="ps -cx"
 alias del="/bin/rm -rf"
-alias rm="~/rm"
 alias untar="tar -xvf"
 
 alias ubuntu='ssh sudhindra@sudhindra.gotdns.com'
