@@ -17,7 +17,7 @@ fi
 
 for dotfile in screenrc bashrc
 do
-    ln -s $dotfile ~/.$dotfile
+    ln -s $DOTFILE_PATH/$dotfile ~/.$dotfile
 done
 
 popd
