@@ -1,3 +1,7 @@
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+
 # Settings for non-login shells
 export JEWELER_OPTS="--rspec"
 
@@ -24,6 +28,7 @@ elif [[ -d $HOME/.`hostname` ]]; then
 fi
 
 if [[ -d $HOST_SETTINGS_DIR ]] ; then
+    echo "Sourcing files found in $HOST_SETTINGS_DIR..."
     for file in $HOST_SETTINGS_DIR/*; do source $file; done
 fi
 
