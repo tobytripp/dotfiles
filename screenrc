@@ -4,6 +4,8 @@ hardstatus string "%{.kW}%-Lw%{.bW}%n %t%{-}%+Lw %=%{..G} %l %u %H %Y-%m-%d %c "
 defscrollback 5000
 bind b eval "writebuf" "exec sh -c 'pbcopy < /tmp/screen-exchange'"
 
-screen -t Shell 0 bash
+shell -$SHELL
+shelltitle "$ |bash"
+screen -t Shell 0 -$SHELL
 screen -t Emacs 1 emacs -nw
 select 0

@@ -1,12 +1,13 @@
 --- 
-gem: --no-ri --run-tests
-rdoc: --inline-source --line-numbers --template=jamis
-:verbose: true
+:backtrace: false
 :benchmark: false
+:bulk_threshold: 1000
 :sources: 
 - http://gems.rubyforge.org/
 - http://gems.github.com
 - http://gemcutter.org
+- http://gems.dnc.org
 :update_sources: true
-:backtrace: false
-:bulk_threshold: 1000
+:verbose: true
+gem: --no-ri --run-tests
+rdoc: --inline-source --line-numbers --template=jamis
