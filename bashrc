@@ -2,23 +2,7 @@ if [ -f /etc/bashrc ]; then
         . /etc/bashrc
 fi
 
-# Settings for non-login shells
-export JRUBY_HOME=/usr/local/lib/jruby
-export MYSQL_HOME=/usr/local/mysql
-export ANT_HOME=/opt/local/share/java/apache-ant
-export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home
-export BUILT_IN_RUBY=/System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin
-export GITERNAL=~/projects/rackspace.git/giternal
-export MONGODB=/usr/local/mongodb
-
-# Put /usr/local/bin ahead of /usr/bin to preempt built-in Ruby
-PATH=~/bin:/usr/local/bin:/usr/bin:/opt/local/bin:/opt/local/sbin:$JAVA_HOME/bin:$MYSQL_HOME/bin:$PATH
-PATH=$PATH:/usr/local/git/bin:$BUILT_IN_RUBY:$JRUBY_HOME/bin
-PATH=$PATH:/usr/local/git/libexec/git-core/:$GITERNAL/bin
-PATH=$PATH:$MONGODB/bin
-
-MANPATH=/opt/local/share/man:$MANPATH
-
+source ~/.paths
 export EDITOR=vim
 export JEWELER_OPTS="--rspec"
 
