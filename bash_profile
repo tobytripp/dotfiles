@@ -2,6 +2,8 @@ source ~/.bashrc
 
 source ~/.bash_vcs.sh
 source ~/.bash_login
+
+source /etc/cdargs-bash.sh
 source ~/.cdargs.sh
 
 source ~/.mategem.sh
@@ -11,3 +13,6 @@ source ~/.mategem.sh
 #     export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # fi
 # Finished adapting your PATH environment variable for use with MacPorts.
+
+source ~/.environment
+source ~/.emacs_server

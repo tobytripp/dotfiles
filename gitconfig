@@ -1,32 +1,32 @@
 [user]
-	name = Sudhindra Rao[betarelease]
-	email = sudhindra.r.rao@gmail.com
+  name = Sudhindra Rao[betarelease]
+  email = sudhindra.r.rao@gmail.com
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	interactive = auto
-	ui = auto
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = auto
 [diff]
-	renames = true
+  renames = true
 [alias]
-	changes=diff --name-status -r
-	st=status
-	co=checkout
-	ci=commit -a
-	undo=checkout -f
+  changes=diff --name-status -r
+  st=status
+  co=checkout
+  ci=commit -a
+  undo=checkout -f
 [gui]
-	recentrepo = #/Users/toby/Code/Ruby/specr
+  recentrepo = #/Users/toby/Code/Ruby/specr
 [core]
-	excludesfile = /Users/ThoughtWorks/.gitignore
+  excludesfile = /Users/ThoughtWorks/.gitignore
 [mirror]
-	summary = true
+  summary = true
 [branch]
-	autosetupmerge = true
+  autosetupmerge = true
 [help]
-	autocorrect = 1
+  autocorrect = 1
 [push]
-	default = matching
+  default = matching
 [github]
-	user = tobytripp
-	token = ecff5b9c54eeb9a495c37bd4429a1ddc
+  user = tobytripp
+  token = ecff5b9c54eeb9a495c37bd4429a1ddc

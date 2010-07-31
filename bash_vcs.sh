@@ -38,26 +38,26 @@ function detect_vcs {
         [ -d ".svn" ] || return 1
         VCS='svn'
         while [ -d "$base_dir/../.svn" ]; do base_dir="$base_dir/.."; done
-	base_dir=`cd $base_dir; pwd`
-	vcs_branch=$(svn info "$base_dir" | awk '/^URL/ { sub(".*/","",$0); r=$0 } /^Revision/ { sub("[^0-9]*","",$0); print r":"$0 }')
-	
-	alias pull="svn up"
-	alias commit="svn commit"
-	alias push="svn ci"
-	alias revert="svn revert"
+        base_dir=`cd $base_dir; pwd`
+        vcs_branch=$(svn info "$base_dir" | awk '/^URL/ { sub(".*/","",$0); r=$0 } /^Revision/ { sub("[^0-9]*","",$0); print r":"$0 }')
+  
+        alias pull="svn up"
+        alias commit="svn commit"
+        alias push="svn ci"
+        alias revert="svn revert"
     }
     
     git_dir || svn_dir
     
     if [ -n "$VCS" ]; then
-	alias st="$VCS status"
-	alias d="$VCS diff"
-	alias up="pull"
-	__vcs_prefix="($VCS)"
-	__vcs_branch_tag="[$vcs_branch]"
+      alias st="$VCS status"
+      alias d="$VCS diff"
+      alias up="pull"
+      __vcs_prefix="($VCS)"
+      __vcs_branch_tag="[$vcs_branch]"
     else
-	__vcs_prefix=''
-	__vcs_branch_tag=''
+      __vcs_prefix=''
+      __vcs_branch_tag=''
     fi
     
     base_dir="$(basename "${base_dir}")"
