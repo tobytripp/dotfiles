@@ -61,3 +61,11 @@ BRIGHT_WHITE="\[$ESC[${BRIGHT};${FG_WHITE}m\]"
 # REV TEXT as an example
 REV_CYAN="\[$ESC[${DULL};${BG_WHITE};${BG_CYAN}m\]"
 REV_RED="\[$ESC[${DULL};${FG_YELLOW}; ${BG_RED}m\]"
+
+BLUE="\[$ESC[${DULL};${FG_BLUE}m\]"
+RED="\[$ESC[${DULL};${FG_RED}m\]"
+LIGHT_RED="\[$ESC[${BRIGHT};${FG_RED}m\]"
+GREEN="\[$ESC[${DULL};${FG_GREEN}m\]"
+LIGHT_GREEN="\[$ESC[${BRIGHT};${FG_GREEN}m\]"
+WHITE="\[$ESC[${BRIGHT};${FG_WHITE}m\]"
+LIGHT_GRAY="\[$ESC[${DULL};${FG_WHITE}m\]"

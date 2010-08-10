@@ -66,15 +66,7 @@ function detect_vcs {
     __cwd=${__cwd/$base_dir/\/}
 }
 
-function prompt {
-    local        BLUE="\[\033[0;34m\]"
-    local         RED="\[\033[0;31m\]"
-    local   LIGHT_RED="\[\033[1;31m\]"
-    local       GREEN="\[\033[0;32m\]"
-    local LIGHT_GREEN="\[\033[1;32m\]"
-    local       WHITE="\[\033[1;37m\]"
-    local  LIGHT_GRAY="\[\033[0;37m\]"
-    
+function prompt {    
     PROMPT_COMMAND=detect_vcs
     PS1="\h:$GREEN\${__vcs_prefix}$BLUE\${base_dir}\$(check_git_changes)\${__vcs_branch_tag}$BLUE\${__cwd}$NORMAL \$ "
   # PS2='> '
