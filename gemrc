@@ -8,5 +8,5 @@ gem: --no-ri --run-tests
 - http://gems.github.com
 - http://gemcutter.org
 :update_sources: true
-rdoc: --inline-source --line-numbers --template=jamis
+rdoc: --inline-source --line-numbers
 :bulk_threshold: 1000

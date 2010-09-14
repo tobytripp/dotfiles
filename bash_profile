@@ -16,3 +16,12 @@ source ~/.mategem.sh
 
 source ~/.environment
 source ~/.emacs_server
+
+##
+# Your previous /Users/ThoughtWorks/.bash_profile file was backed up as /Users/ThoughtWorks/.bash_profile.macports-saved_2010-08-23_at_10:54:52
+##
+
+# MacPorts Installer addition on 2010-08-23_at_10:54:52: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
