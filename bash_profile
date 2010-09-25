@@ -24,7 +24,7 @@ echo "Loading .cdargs... "
 #     export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # fi
 # Finished adapting your PATH environment variable for use with MacPorts.
-if [ $DARWIN == "true" ]
+if [ "$DARWIN" = "true" ]
 then
   source ~/.darwin/environment
 else
