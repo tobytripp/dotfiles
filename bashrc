@@ -44,3 +44,10 @@ then
   # normally, execution of this rc script ends here...
   echo "Screen failed! continuing with normal bash startup"
 fi
+
+if [ "$TERM" != "dumb" ]; then
+    [ -e "$HOME/.dir_colors" ] && 
+    DIR_COLORS="$HOME/.dir_colors" [ -e "$DIR_COLORS" ] || DIR_COLORS="" 
+    eval "`dircolors -b $DIR_COLORS`" 
+#    alias ls='ls --color=auto'
+fi
