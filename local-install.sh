@@ -3,7 +3,7 @@
 # A script to install these dotfiles onto a new machine.
 #
 # Usage:
-#  bash < <( curl http://github.com/tobytripp/dotfiles/raw/master/local-install.sh )
+#  bash < <( curl http://github.com/pturley/dotfiles/raw/master/local-install.sh )
 
 DOTFILE_PATH="${DOTFILE_PATH:-$HOME/.dotfiles}"
 
@@ -11,7 +11,7 @@ if [[ -d "$HOME/.dotfiles" ]]; then
     pushd $DOTFILE_PATH
     git pull origin master
 else
-    git clone http://github.com/tobytripp/dotfiles.git $DOTFILE_PATH
+    git clone http://github.com/pturley/dotfiles.git $DOTFILE_PATH
     pushd $DOTFILE_PATH
 fi
 
