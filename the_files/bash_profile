@@ -1,17 +1,11 @@
-UNAME=`uname -a`
-echo $UNAME
-echo $UNAME | grep "Darwin"
-if [[ $? -eq 0 ]] 
-  then
-    export DARWIN="true"
-fi
-
 echo "Loading .bash_profile... "
+
 source ~/.bashrc
 echo "Loading .bashrc... "
 
 source ~/.bash_vcs.sh
 echo "Loading .bash_vcs.sh... "
+
 source ~/.bash_login
 echo "Loading .bash_login.sh.. "
 
@@ -24,14 +18,9 @@ echo "Loading .cdargs... "
 #     export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # fi
 # Finished adapting your PATH environment variable for use with MacPorts.
-if [ $DARWIN == "true" ]
-then
-  source ~/.darwin/environment
-else
-  source ~/.linux/environment
-fi
-
+source ~/.os_specific/environment
 echo "Loading .environment... "
+
 source ~/.emacs_server
 echo "Loading .emacs_server... "
 
