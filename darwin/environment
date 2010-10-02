@@ -7,3 +7,5 @@ export EDITOR=vim
 export JEWELER_OPTS="--rspec"
 
 source ~/.darwin/paths
+
+source ~/.javavm/java_paths

@@ -1,0 +1,14 @@
+
+export JAVA_INSTALL=/System/Library/Frameworks/JavaVM.framework/Versions
+
+JAVA_VERSIONS=`ls $JAVA_INSTALL`
+
+for version in $JAVA_VERSIONS
+  do
+    dot=.
+    blank=
+    version_name=${version//$dot/$blank}
+    java_name=JAVA_${version_name}
+
+    export $java_name=$JAVA_INSTALL/$version
+  done
