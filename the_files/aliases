@@ -1,4 +1,5 @@
 alias sl=ls
+alias la='ls -la'
 
 alias 'dir'='ls -la | more'
 alias 'port'='/opt/local/bin/port'
@@ -13,3 +14,6 @@ alias untar="tar -xvf"
 
 alias up='cd ..;'
 alias rtags="find . -name '*.rb' | xargs /usr/local/bin/ctags -a -e -f TAGS"
+
+alias backup="sudo rsync -xrlptgoEv --progress --delete / /Volumes/"
+alias synergy="synergyc -n Mac -f --restart 192.168.1.100"
