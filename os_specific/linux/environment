@@ -6,6 +6,4 @@ export ARCHFLAGS="-arch x86_64"
 export EDITOR=vim
 export JEWELER_OPTS="--rspec"
 
-source ~/.darwin/paths
-
-source ~/.javavm/java_paths
+source ~/.os_specific/paths
