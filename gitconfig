@@ -15,6 +15,7 @@
 	co=checkout
 	ci=commit -a
 	undo=checkout -f
+	pull=pull --rebase
 [gui]
 	recentrepo = /Users/toby/Code/Ruby/specr
 [core]
