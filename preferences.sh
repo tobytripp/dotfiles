@@ -28,3 +28,7 @@ defaults write com.apple.dock no-glass 1
 
 # Arrows link to library instead of iTunes store
 defaults write com.apple.iTunes invertStoreLinks true
+
+# Reset the window control buttons to horizontal orientation
+defaults write com.apple.iTunes full-window -1
+
