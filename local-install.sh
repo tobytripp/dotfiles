@@ -11,7 +11,7 @@ if [[ -d "$HOME/.dotfiles" ]]; then
     pushd $DOTFILE_PATH
     git pull origin master
 else
-    git clone http://github.com/pturley/dotfiles.git $DOTFILE_PATH
+    git clone http://github.com/betarelease/dotfiles.git $DOTFILE_PATH
     pushd $DOTFILE_PATH
 fi
 
