@@ -29,6 +29,10 @@ Dir.chdir("the_files")
 Dir['*'].each do |file|
   next if file =~ /install/
   target = File.join(home, ".#{file}")
+  if File.exists? target
+    puts target
+    next
+  end
   `ln -s #{File.expand_path file} #{target}`
 end
 
