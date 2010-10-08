@@ -10,6 +10,22 @@ else
 end
 
 Dir.chdir("the_files")
+# SYMLINKS = %w(
+#               bashrc
+#               bash_profile
+#               bash_login
+#               editrc
+#               history
+#               inputrc
+#               irbrc
+#               screenrc
+#               vimrc              
+#              )
+# SYMLINKS.each do |file|
+#   target = File.join(home, ".#{file}")
+#   `ln -s #{File.expand_path file} #{target}`
+# end
+               
 Dir['*'].each do |file|
   next if file =~ /install/
   target = File.join(home, ".#{file}")
