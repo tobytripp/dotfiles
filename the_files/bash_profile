@@ -1,30 +1,14 @@
-<<<<<<< HEAD:bash_profile
-UNAME=`uname -a`
-echo $UNAME
-echo $UNAME | grep "Darwin"
-if [[ $? -eq 0 ]] 
-  then
-    export DARWIN="true"
-fi
-
-echo "Loading .bash_profile... "
-=======
 echo "Loading .bash_profile... "
 
->>>>>>> a8814646a2397c2747b2f5478b0fe016af27b698:the_files/bash_profile
 source ~/.bashrc
 echo "Loading .bashrc... "
 
 source ~/.bash_vcs.sh
 echo "Loading .bash_vcs.sh... "
-<<<<<<< HEAD:bash_profile
-=======
-
->>>>>>> a8814646a2397c2747b2f5478b0fe016af27b698:the_files/bash_profile
 source ~/.bash_login
 echo "Loading .bash_login.sh.. "
 
-source /etc/cdargs-bash.sh
+source ~/.cdargs-bash.sh
 source ~/.cdargs.sh
 echo "Loading .cdargs... "
 
@@ -33,20 +17,9 @@ echo "Loading .cdargs... "
 #     export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # fi
 # Finished adapting your PATH environment variable for use with MacPorts.
-<<<<<<< HEAD:bash_profile
-if [ "$DARWIN" = "true" ]
-then
-  source ~/.darwin/environment
-else
-  source ~/.linux/environment
-fi
-
-echo "Loading .environment... "
-=======
 source ~/.os_specific/environment
 echo "Loading .environment... "
 
->>>>>>> a8814646a2397c2747b2f5478b0fe016af27b698:the_files/bash_profile
 source ~/.emacs_server
 echo "Loading .emacs_server... "
 
