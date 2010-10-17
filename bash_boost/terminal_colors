@@ -1,0 +1,4 @@
+export TERM=xterm-color
+export CLICOLOR=1
+export GREP_OPTIONS='--color=auto'
+export LSCOLORS=bxfxcxdxbxegedabagacad

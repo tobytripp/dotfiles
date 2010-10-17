@@ -1,5 +1,5 @@
 source ~/.history
-source ~/.terminal_colors
+source ~/.bash_boost/terminal_colors
 
 export ARCHFLAGS="-arch x86_64"
 

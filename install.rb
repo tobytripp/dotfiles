@@ -1,6 +1,20 @@
 #!/usr/bin/env ruby
 
 home = File.expand_path('~')
+backup = File.join(home, "backup")
+
+`mkdir #{backup}`
+Dir.chdir("the_files")
+Dir["*"].each do |file|
+  target = File.join(home, ".#{file}")
+  `mv -f #{target} #{backup}`
+  `ln -s #{File.expand_path file} #{target}`
+end
+
+Dir.chdir("..")
+BASH_BOOST = "bash_boost"
+target = File.join(home, ".#{BASH_BOOST}")
+`ln -s #{File.expand_path BASH_BOOST} #{target}`
 
 target = File.join(home, ".os_specific")
 if RUBY_PLATFORM =~ /Darwin/i
@@ -8,34 +22,7 @@ if RUBY_PLATFORM =~ /Darwin/i
 else
   `ln -s #{File.expand_path "os_specific/linux/"}/ #{target}`
 end
-
-Dir.chdir("the_files")
-# SYMLINKS = %w(
-#               bashrc
-#               bash_profile
-#               bash_login
-#               editrc
-#               history
-#               inputrc
-#               irbrc
-#               screenrc
-#               vimrc              
-#              )
-# SYMLINKS.each do |file|
-#   target = File.join(home, ".#{file}")
-#   `ln -s #{File.expand_path file} #{target}`
-# end
                
-Dir['*'].each do |file|
-  next if file =~ /install/
-  target = File.join(home, ".#{file}")
-  if File.exists? target
-    puts target
-    next
-  end
-  `ln -s #{File.expand_path file} #{target}`
-end
-
 # git push on commit
 #`echo 'git push' > .git/hooks/post-commit`
 #`chmod 755 .git/hooks/post-commit`

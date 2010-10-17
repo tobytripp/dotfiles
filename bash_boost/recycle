@@ -1,0 +1,31 @@
+#!/bin/ksh
+
+##
+##  trashit.ksh
+##  BASIC wastebasket script for *nix
+##
+
+WASTEBASKET=${HOME}/trash
+
+
+function get_absolute_path
+{
+    ABS_PATH=$(cd $(dirname ${1});pwd)
+}
+
+function move_to_wastebasket
+{
+  FILES=${@}
+  echo "moving $FILES to recycle bin"
+  for file in ${FILES}; do
+    filename=$(basename ${file})
+    get_absolute_path ${file}
+    if [[ ! -d ${WASTEBASKET}${ABS_PATH} ]] ; then
+      mkdir -p ${WASTEBASKET}${ABS_PATH}
+    fi
+    mv ${file} ${WASTEBASKET}${ABS_PATH}/${filename}_$(date +%s)
+  done   
+
+}
+
+move_to_wastebasket $@
