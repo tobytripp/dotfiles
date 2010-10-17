@@ -1,7 +1,7 @@
 # Settings for non-login shells
 export MYSQL_HOME=/usr/local/mysql
 export ANT_HOME=/opt/local/share/java/apache-ant
-export JAVA_HOME=/usr/local/share/java
+export JAVA_HOME=/usr/lib/jvm/java-6-sun
 export GIT_HOME=/usr/local/git
 export GIT_CORE=/usr/local/git/libexec/git-core/
 
