@@ -22,7 +22,7 @@ function detect_vcs {
         if [ -n "$base_dir" ]; then
             base_dir=`cd $base_dir; pwd`
         else
-	    base_dir=$PWD
+            base_dir=$PWD
         fi
         
         vcs_branch=$(parse_git_branch)
@@ -68,7 +68,7 @@ function detect_vcs {
 
 function prompt {    
     PROMPT_COMMAND=detect_vcs
-    PS1="\h:$GREEN\${__vcs_prefix}$BLUE\${base_dir}\$(check_git_changes)\${__vcs_branch_tag}$BLUE\${__cwd}$NORMAL \$ "
+    PS1="\u@\h:$GREEN\${__vcs_prefix}$CYAN\${base_dir}\[\$(check_git_changes)\] \${__vcs_branch_tag}$CYAN\${__cwd}$NORMAL \$ "
   # PS2='> '
   # PS4='+ '
 }
