@@ -1,6 +1,6 @@
 require 'autotest/growl'
-require '~/autotest/sound/sound.rb'
-Autotest::Sound.sound_path = "~/autotest/sound/sound_fx/"
+#require '~/autotest/sound/sound.rb'
+#Autotest::Sound.sound_path = "~/autotest/sound/sound_fx/"
 
 # require 'autotest/redgreen'
 require 'autotest/timestamp'
