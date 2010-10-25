@@ -1,29 +1,33 @@
-echo "Loading .bash_profile... "
+echo "Attempting to boost your bash..."
+
+echo "Loading .bash_profile..."
 
 echo "Loading .bashrc... "
 source ~/.bashrc
 
-echo "Loading .bash_vcs.sh... "
-source ~/.bash_vcs.sh
+echo "Loading version control boost... "
+source ~/.bash_boost/bash_vcs.sh
 
 echo "Loading .bash_login.sh.. "
 source ~/.bash_login
 
-echo "Loading .cdargs... "
-source ~/.cdargs-bash.sh
-source ~/.cdargs.sh
+echo "Loading boost for your cd command... "
+source ~/.bash_boost/cdargs-bash.sh
+source ~/.bash_boost/cdargs.sh
 
 # MacPorts Installer addition on 2009-12-21_at_09:37:47: adding an appropriate PATH variable for use with MacPorts.
 # if [[ id /opt/local/bin ]]; then
 #     export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # fi
 # Finished adapting your PATH environment variable for use with MacPorts.
-echo "Loading .environment... "
+echo "Loading environment... Also loading anything specific for this machine "
 source ~/.os_specific/environment
 
-echo "Loading .emacs_server... "
-source ~/.emacs_server
+echo "Loading emacs_server... Remote pairing with emacs anyone? "
+source ~/.bash_boost/emacs_server
 
 # MacPorts Installer addition on 2010-08-23_at_10:54:52: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
+
+echo "Boost process Successful and Complete!"
