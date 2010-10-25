@@ -3,19 +3,21 @@
 home = File.expand_path('~')
 backup = File.join(home, "backup")
 
-#find all files pointing to dotfiles and remove them
-
-`find . -maxdepth 1 -type lname -ls | grep dotfiles `
-
-Dir.chdir(home)
-# Dir["*"].each do |file|
-#   `rm #{File.expand_path file}`
-# end
-
-#remove bashboost and os_specific
+puts "Removing bash_boost... Sorry to see you go :("
 `rm #{File.join(home, ".bash_boost")}`
 
+puts "Removing os_specific settings. Your paths may need tweaking after this step."
 target = File.join(home, ".os_specific")
 `rm #{target}`
+
+#find all files pointing to dotfiles and remove them
+# when doing it with bash we will need to do it with find
+# SYMLINKS=`find . -maxdepth 1 -type lname -ls | grep dotfiles `
+
+# puts SYMLINKS
+Dir.foreach( home ) do | symlink |
+  File.delete( "#{home}/#{symlink}" ) if File.ftype( "#{home}/#{symlink}" ) == "link"
+end
+
 
 # restore whatever was in the backup
