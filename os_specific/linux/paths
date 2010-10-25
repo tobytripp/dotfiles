@@ -1,5 +1,4 @@
 # Settings for non-login shells
-export JAVA_HOME=/usr/local/share/java
+export JAVA_HOME=/usr/lib/jvm/java-6-sun
 
 PATH=$JAVA_HOME/bin:$PATH
-
