@@ -1,12 +1,3 @@
-source ~/.history
-source ~/.terminal_colors
-
-export ARCHFLAGS="-arch x86_64"
-
-export EDITOR=vim
-export JEWELER_OPTS="--rspec"
-
-source ~/.os_specific/paths
 
 if [ "$TERM" != "dumb" ]; then
     [ -e "$HOME/.dir_colors" ] && 

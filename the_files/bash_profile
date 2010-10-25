@@ -13,17 +13,18 @@ echo "Loading .cdargs... "
 source ~/.cdargs-bash.sh
 source ~/.cdargs.sh
 
-# MacPorts Installer addition on 2009-12-21_at_09:37:47: adding an appropriate PATH variable for use with MacPorts.
-# if [[ id /opt/local/bin ]]; then
-#     export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# fi
-# Finished adapting your PATH environment variable for use with MacPorts.
+echo "Loading .history..."
+source ~/.history
+
+echo "Loading .terminal_colors"
+source ~/.terminal_colors
+
 echo "Loading .environment... "
 source ~/.os_specific/environment
 
 echo "Loading .emacs_server... "
 source ~/.emacs_server
 
-# MacPorts Installer addition on 2010-08-23_at_10:54:52: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
+echo "Loading paths..."
+source ~/.paths
+source ~/.os_specific/paths
