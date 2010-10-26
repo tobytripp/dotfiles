@@ -1,34 +1,34 @@
-echo "Attempting to boost your bash..."
+echo -e "--- Attempting to boost your bash..."
 
-echo "Loading .bash_profile..."
+echo -e "bash_profile...\c"
 
-echo "Loading .bashrc... "
+echo -e "bashrc...\c"
 source ~/.bashrc
 
-echo "Loading version control boost... "
+echo -e "version control boost...\c"
 source ~/.bash_boost/bash_vcs.sh
 
-echo "Loading .bash_login.sh.. "
+echo -e "bash_login...\c"
 source ~/.bash_login
 
-echo "Loading boost for your cd command... "
+echo -e "cd command boost...\c"
 source ~/.bash_boost/cdargs-bash.sh
 source ~/.bash_boost/cdargs.sh
 
-echo "Loading .history..."
+echo -e "history boost...\c"
 source ~/.history
 
-echo "Loading .terminal_colors"
+echo -e "terminal_colors...\c"
 source ~/.bash_boost/terminal_colors
 
-echo "Loading .environment... "
+echo -e "environment...\c"
 source ~/.os_specific/environment
 
-echo "Loading emacs_server... Remote pairing with emacs anyone? "
+echo -e "emacs_server...\c"
 source ~/.bash_boost/emacs_server
 
-echo "Loading paths..."
+echo "paths..."
 source ~/.paths
 source ~/.os_specific/paths
 
-echo "Boost process Successful and Complete!"
+echo "--- Boost process Successful and Complete!"
