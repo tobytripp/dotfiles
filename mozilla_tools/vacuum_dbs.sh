@@ -1,4 +1,5 @@
 #!/bin/bash
+# allows cleaning mozilla app databases for enhancing performance
 username=$(whoami)
 
 function check_app {
