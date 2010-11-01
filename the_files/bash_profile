@@ -29,7 +29,9 @@ source ~/.bash_boost/emacs_server
 
 echo "paths..."
 source ~/.os_specific/paths
-source ~/.user_specific/paths
 source ~/.paths
+
+echo "user specific things..."
+source ~/.user_specific/loader
 
 echo "--- Boost process Successful and Complete!"
