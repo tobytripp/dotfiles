@@ -13,6 +13,11 @@ export JEWELER_OPTS="--rspec"
 # Put /usr/local/bin ahead of /usr/bin to preempt built-in Ruby
 export PREEMPT_BUILTIN_RUBY=~/bin:/usr/local/bin:/usr/bin:/opt/local/bin:/opt/local/sbin
 
+#JAVA_HOME should be set in the os_specific/paths but in case it isnt, we wrap it in a check
+if [ -n "${JAVA_HOME:+x}" ]; then
+  PATH=$JAVA_HOME/bin:$PATH
+fi
+
 PATH=$PREEMPT_BUILTIN_RUBY:$MYSQL_HOME/bin:$PATH
 PATH=$PATH:$GIT_HOME/bin:$JRUBY_HOME/bin
 PATH=$PATH:$GIT_CORE:$GITERNAL/bin

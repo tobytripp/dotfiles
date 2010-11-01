@@ -28,7 +28,7 @@ echo -e "emacs_server...\c"
 source ~/.bash_boost/emacs_server
 
 echo "paths..."
-source ~/.paths
 source ~/.os_specific/paths
+source ~/.paths
 
 echo "--- Boost process Successful and Complete!"
