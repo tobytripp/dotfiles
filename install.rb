@@ -22,7 +22,10 @@ if RUBY_PLATFORM =~ /Darwin/i
 else
   `ln -s #{File.expand_path "os_specific/linux/"}/ #{target}`
 end
-               
+
+target = File.join(home, ".user_specific")
+`ln -s #{File.expand_path "user_specific/"}/ #{target}`
+
 # git push on commit
 #`echo 'git push' > .git/hooks/post-commit`
 #`chmod 755 .git/hooks/post-commit`
