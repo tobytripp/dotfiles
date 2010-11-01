@@ -1,3 +1,6 @@
+# http://effectif.com/mac-os-x/textmate/opening-ruby-gems-in-textmate
+# 'mategem activerecord' will open the activerecord gem - mostly useless feature with rvm
+
 _mategem()
 {
     local curw
