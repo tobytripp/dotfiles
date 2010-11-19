@@ -16,7 +16,7 @@
   ci=commit -a
   undo=checkout -f
 [core]
-  excludesfile = /Users/ThoughtWorks/.gitignore
+  excludesfile = ~/.gitignore
 [mirror]
   summary = true
 [branch]
