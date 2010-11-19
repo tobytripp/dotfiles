@@ -1,7 +1,7 @@
 Sudhindra's dotfiles
 ===============
 
-My UNIX dotfiles bared for the world to see. (Well they were originally Toby Tripp's, then Sudhindra Rao's, and now mine!)
+My UNIX dotfiles bared for the world to see. (Well they were originally Toby Tripp's, then Sudhindra Rao's, and now Patrick Turley)
 
 Installation
 ------------
@@ -14,7 +14,14 @@ alternatively:
 
     bash < <( curl http://github.com/betarelease/dotfiles/raw/master/local-install.sh )
 
+Uninstallation
+------------
 
+Now you can cleanly uninstall and reinstall your dotfiles.
+  
+  cd dotfiles
+  ruby uninstall.rb
+  
 Remote Server Installation
 --------------------------
 
