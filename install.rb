@@ -2,6 +2,7 @@
 
 home = File.expand_path('~')
 backup = File.join(home, "backup")
+Dir.mkdir backup unless File.exists? backup
 
 puts "Hey"
 puts "So, BashBoost eh?"

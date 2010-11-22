@@ -19,5 +19,7 @@ Dir.foreach( home ) do | symlink |
   File.delete( "#{home}/#{symlink}" ) if File.ftype( "#{home}/#{symlink}" ) == "link"
 end
 
-
 # restore whatever was in the backup
+Dir.foreach( backup ) do | symlink |
+  `mv #{symlink} ~`
+end

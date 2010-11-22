@@ -1,9 +1,0 @@
-*.elc
-auto-save-list
-.saves*
-*.cache
-*~
-*.swp
-user_specific/*
-emacs.d/elpa/archive-contents
-emacs.d/elpa/builtin-packages
