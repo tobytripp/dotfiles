@@ -6,3 +6,7 @@ if [ "$TERM" != "dumb" ]; then
     alias ls='ls --color=auto'
 fi
 
+export ARCHFLAGS="-arch x86_64"
+export EDITOR=vim
+export JEWELER_OPTS="--rspec"
+
