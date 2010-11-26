@@ -30,7 +30,7 @@ source ~/.bash_boost/emacs_server
 echo "paths..."
 source ~/.os_specific/paths
 
-echo "user specific things..."
+echo "user specific boost..."
 source ~/.user_specific/loader
 
 echo "--- Boost process Successful and Complete!"
