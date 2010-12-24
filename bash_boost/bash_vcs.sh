@@ -20,9 +20,9 @@ function detect_vcs {
         VCS='git'
 
         if [ -n "$base_dir" ]; then
-            base_dir=`cd $base_dir; pwd`
+          base_dir=`cd $base_dir; pwd`
         else
-	    base_dir=$PWD
+	        base_dir=$PWD
         fi
         
         vcs_branch=$(parse_git_branch)
@@ -37,8 +37,8 @@ function detect_vcs {
     svn_dir() {
         [ -d ".svn" ] || return 1
         VCS='svn'
-        while [ -d "$base_dir/../.svn" ]; do base_dir="$base_dir/.."; done
-        base_dir=`cd $base_dir; pwd`
+        # while [ -d "$base_dir/../.svn" ]; do base_dir="$base_dir/.."; done
+        # base_dir=`cd $base_dir; pwd`
         vcs_branch=$(svn info "$base_dir" | awk '/^URL/ { sub(".*/","",$0); r=$0 } /^Revision/ { sub("[^0-9]*","",$0); print r":"$0 }')
   
         alias pull="svn up"
