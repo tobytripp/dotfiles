@@ -34,3 +34,7 @@ echo "user specific boost..."
 source ~/.user_specific/loader
 
 echo "--- Boost process Successful and Complete!"
+
+export NARWHAL_ENGINE=jsc
+
+export PATH="~/Downloads/Starter/narwhal/bin:$PATH"
