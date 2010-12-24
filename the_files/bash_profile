@@ -1,39 +1,39 @@
-echo -e "--- Attempting to boost your bash..."
+echo -e "--- Attempting to boost your bash..." > bash_boost.log
 
-echo -e "bash_profile...\c"
+echo -e "bash_profile...\c" >> bash_boost.log
 
-echo -e "bashrc...\c"
+echo -e "bashrc...\c" >> bash_boost.log
 source ~/.bashrc
 
-echo -e "version control boost...\c"
+echo -e "version control boost...\c" >> bash_boost.log
 source ~/.bash_boost/bash_vcs.sh
 
-echo -e "bash_login...\c"
+echo -e "bash_login...\c" >> bash_boost.log
 source ~/.bash_login
 
-echo -e "cd command boost...\c"
+echo -e "cd command boost...\c" >> bash_boost.log
 source ~/.bash_boost/cdargs-bash.sh
 source ~/.bash_boost/cdargs.sh
 
-echo -e "history boost...\c"
+echo -e "history boost...\c" >> bash_boost.log
 source ~/.history
 
-echo -e "terminal_colors...\c"
+echo -e "terminal_colors...\c" >> bash_boost.log
 source ~/.bash_boost/terminal_colors
 
-echo -e "environment...\c"
+echo -e "environment...\c" >> bash_boost.log
 source ~/.os_specific/environment
 
-echo -e "emacs_server...\c"
+echo -e "emacs_server...\c" >> bash_boost.log
 source ~/.bash_boost/emacs_server
 
-echo "paths..."
+echo "paths..." >> bash_boost.log
 source ~/.os_specific/paths
 
-echo "user specific boost..."
+echo "user specific boost..." >> bash_boost.log
 source ~/.user_specific/loader
 
-echo "--- Boost process Successful and Complete!"
+echo "--- Boost process Successful and Complete! (details logged to bash_boost.log)"
 
 export NARWHAL_ENGINE=jsc
 
