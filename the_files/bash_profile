@@ -30,6 +30,9 @@ source ~/.bash_boost/emacs_server
 echo "paths..." >> bash_boost.log
 source ~/.os_specific/paths
 
+echo "java functions..." >> bash_boost.log
+source ~/.bash_boost/java_functions.sh
+
 echo "user specific boost..." >> bash_boost.log
 source ~/.user_specific/loader
 
