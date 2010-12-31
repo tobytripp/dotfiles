@@ -1,5 +1,5 @@
 if [ -f /etc/bashrc ]; then
-        . /etc/bashrc
+    . /etc/bashrc
 fi
 
 # Settings for non-login shells
@@ -50,3 +50,5 @@ then
     # normally, execution of this rc script ends here...
     echo "Screen failed! continuing with normal bash startup"
 fi
+
+export PATH=~/bin:$PATH
