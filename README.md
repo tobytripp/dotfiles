@@ -6,13 +6,13 @@ My UNIX dotfiles bared for the world to see.
 Installation
 ------------
 
-    git clone http://github.com/tobytripp/dotfiles.git dotfiles
+    git clone https://github.com/tobytripp/dotfiles.git dotfiles
     cd dotfiles
     ruby install.rb
 
 alternatively:
 
-    bash < <( curl http://github.com/tobytripp/dotfiles/raw/master/local-install.sh )
+    bash < <( curl https://github.com/tobytripp/dotfiles/raw/master/local-install.sh )
 
 
 Remote Server Installation
@@ -23,7 +23,7 @@ dotfiles on remote servers.  These files include things like screen
 configuration, a simple bashrc, and the sort.
 
 Install with:
-    bash < <( curl http://github.com/tobytripp/dotfiles/raw/master/remote-install.sh )
+    bash < <( curl https://github.com/tobytripp/dotfiles/raw/master/remote-install.sh )
 
 This just clones or updates the repository and links back bashrc and screenrc.
 
