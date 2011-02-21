@@ -26,8 +26,8 @@ if user_profile.nil?
   name = gets.chomp
   puts "Awesome, I will create #{name}"
   Dir.mkdir "user_specific/#{name}"
-  File.new("user_specific/#{name}/loader", "w") do |file|
-    file.syswrite("source ~/.user_specific/paths")
+  File.open("user_specific/#{name}/loader", "w") do |file|
+    file.write("source ~/.user_specific/paths")
   end
   File.new("user_specific/#{name}/paths", "w")
 else
