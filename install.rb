@@ -23,13 +23,13 @@ end
 
 if user_profile.nil?
   puts "What should I call your user profile? "
-  name = gets.chomp
-  puts "Awesome, I will create #{name}"
-  Dir.mkdir "user_specific/#{name}"
-  File.open("user_specific/#{name}/loader", "w") do |file|
+  user_profile = gets.chomp
+  puts "Awesome, I will create #{user_profile}"
+  Dir.mkdir "user_specific/#{user_profile}"
+  File.open("user_specific/#{user_profile}/loader", "w") do |file|
     file.write("source ~/.user_specific/paths")
   end
-  File.new("user_specific/#{name}/paths", "w")
+  File.new("user_specific/#{user_profile}/paths", "w")
 
 	puts "What do you want your full name to be for git? "
 	git_full_name = gets.chomp
@@ -37,7 +37,7 @@ if user_profile.nil?
 	git_email = gets.chomp
   gitconfig_template = File.read("templates/gitconfig")
   gitconfig = gitconfig_template.gsub(/<FULL_NAME>/, git_full_name).gsub(/<EMAIL>/, git_email)
-  File.open("user_specific/#{name}/gitconfig", "w") do |file|
+  File.open("user_specific/#{user_profile}/gitconfig", "w") do |file|
     file.write(gitconfig)
 	end
 else
