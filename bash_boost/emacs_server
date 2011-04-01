@@ -1,5 +1,1 @@
-export ALTERNATE_EDITOR=emacs EDITOR=emacsclient VISUAL=emacsclient
-
-# export ALTERNATE_EDITOR=""
-
 alias Emacsclient="emacsclient $1 -s \$(find /var/folders -name server -type s -uid $(id -u) 2>| /dev/null | grep emacs) \$*"
