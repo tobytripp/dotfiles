@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 home = File.expand_path('~')
-backup = File.join(home, "backup")
+backup = File.join(home, ".backup")
 Dir.mkdir backup unless File.exists? backup
 
 puts "Hey"
