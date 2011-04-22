@@ -22,6 +22,8 @@ fi
 export EDITOR='emacsclient -a ""'
 export BUNDLER_EDITOR='emacsclient -a "" -n'
 
+source $HOME/.ssh_agent.sh
+
 if [ -f ${BASH}/bash_it.sh ]; then
   source ${BASH}/bash_it.sh
 fi
