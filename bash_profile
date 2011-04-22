@@ -14,6 +14,7 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
 fi
 
 source ~/.prompt.sh
+
 if [ -f ~/.oraclerc ]; then
     source ~/.oraclerc
 fi
@@ -21,8 +22,11 @@ fi
 export EDITOR='emacsclient -a ""'
 export BUNDLER_EDITOR='emacsclient -a "" -n'
 
+if [ -f ${BASH}/bash_it.sh ]; then
+  source ${BASH}/bash_it.sh
+fi
+
 export NODE_PATH="/usr/local/lib/node/"
 if [[ -d $NODE_PATH ]]; then
   export PATH=/usr/local/share/npm/bin:$PATH
 fi
-
