@@ -1,5 +1,7 @@
+#!/bin/bash
+
 if [ -f /etc/bashrc ]; then
-        . /etc/bashrc
+    . /etc/bashrc
 fi
 
 # Settings for non-login shells
