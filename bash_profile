@@ -1,36 +1,32 @@
-source ~/.bashrc
+#!/bin/bash
+source $HOME/.bashrc
 
-source ~/.bash_vcs.sh
-source ~/.bash_login
+source $HOME/.bash_vcs.sh
+source $HOME/.bash_login
 
-source ~/.jumplist/j.sh
-source ~/.mategem.sh
+source $HOME/.jumplist/j.sh
+source $HOME/.mategem.sh
 
-source ~/bin/cdargs-bash.sh
+source $HOME/bin/cdargs-bash.sh
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
 
-SSH_ENV="$HOME/.ssh/environment"
+source $HOME/.ssh_agent.sh
 
-function start_agent {
-    echo "Initialising new SSH agent..."
-    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-    echo succeeded
-    chmod 600 "${SSH_ENV}"
-    . "${SSH_ENV}" > /dev/null
-    /usr/bin/ssh-add;
-}
+# http://github.com/revans/bash-it
+export BASH=$HOME/.bash_it
+export BASH_THEME='clean'
+export EDITOR="/usr/bin/mate -w"
+export GIT_EDITOR='/usr/bin/mate -w'
+unset MAILCHECK
 
-# Source SSH settings, if applicable
+if [ -f ${BASH}/bash_it.sh ]; then
+  source ${BASH}/bash_it.sh
+fi
 
-if [ -f "${SSH_ENV}" ]; then
-    . "${SSH_ENV}" > /dev/null
-     #ps ${SSH_AGENT_PID} doesn't work under cywgin
-    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-        start_agent;
-    }
-else
-    start_agent;
-fi 
+export NODE_PATH="/usr/local/lib/node/"
+if [[ -d $NODE_PATH ]]; then
+  export PATH=/usr/local/share/npm/bin:$PATH
+fi
