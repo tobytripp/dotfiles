@@ -13,6 +13,8 @@ export ALTERNATE_EDITOR=""
 export CLICOLOR=true
 export LSCOLORS=bxfxcxdxbxegedabagacad
 
+export ARCHFLAGS="-arch x86_64"
+
 SCRIPT_PATH="${BASH_SOURCE[0]}"
 if [[ -h $SCRIPT_PATH ]] ; then
     while [[ -h $SCRIPT_PATH ]] ; do SCRIPT_PATH=`readlink $SCRIPT_PATH`; done
@@ -46,9 +48,13 @@ then
     [ -d $HOME/lib/screen-logs ] || mkdir -p $HOME/lib/screen-logs
     sleep 1
     screen -RR && exit 0
-    
+
     # normally, execution of this rc script ends here...
     echo "Screen failed! continuing with normal bash startup"
 fi
+
+NODE_BIN=/usr/local/share/npm/bin
+NODE_LIB=/usr/lcoal/lib/node
+if [[ -s $NODE_BIN ]]; then export PATH=$NODE_BIN:$PATH; fi
 
 export PATH=~/bin:$PATH
