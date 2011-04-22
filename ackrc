@@ -7,5 +7,7 @@
 --ignore-dir=vendor
 --ignore-dir=log
 --ignore-dir=logs
+--ignore-dir=.rsync_cache
+--ignore-dir=tmp
 --type-add
 ruby=.rake
