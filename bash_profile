@@ -1,16 +1,18 @@
 source ~/.bashrc
 
-source ~/.bash_vcs.sh
 source ~/.bash_login
 
 source ~/.jumplist/j.sh
 source ~/.mategem.sh
+source ~/.javaconf
 
 source ~/bin/cdargs-bash.sh
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
+
+source ~/.prompt.sh
 
 SSH_ENV="$HOME/.ssh/environment"
 
@@ -33,4 +35,11 @@ if [ -f "${SSH_ENV}" ]; then
     }
 else
     start_agent;
-fi 
+fi
+
+if [ -f ~/.oraclerc ]; then
+    source ~/.oraclerc
+fi
+
+export EDITOR='emacsclient -a ""'
+export BUNDLER_EDITOR='emacsclient -a "" -n'
