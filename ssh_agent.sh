@@ -21,3 +21,17 @@ if [ -f "${SSH_ENV}" ]; then
 else
    start_agent;
 fi
+
+HOSTFILE=~/.hosts
+
+function _ssh() {
+  local cur
+  cur=${COMP_WORDS[COMP_CWORD]}
+  if [ "${cur:0:1}" != "-" ]; then
+        COMPREPLY=( $(awk '/^Host '$2'/{print $2}' $HOME/.ssh/config) )
+  fi            
+  return 0
+}
+
+complete -F _ssh ssh sftp scp
+complete -A hostname ssh sftp scp
