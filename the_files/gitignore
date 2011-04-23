@@ -16,3 +16,6 @@ profile
 
 # Emacs noise
 *~
+
+# Sublime Text Project noise
+*.sublime

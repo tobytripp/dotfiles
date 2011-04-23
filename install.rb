@@ -23,13 +23,23 @@ end
 
 if user_profile.nil?
   puts "What should I call your user profile? "
-  name = gets.chomp
-  puts "Awesome, I will create #{name}"
-  Dir.mkdir "user_specific/#{name}"
-  File.new("user_specific/#{name}/loader", "w") do |file|
-    file.syswrite("source ~/.user_specific/paths")
+  user_profile = gets.chomp
+  puts "Awesome, I will create #{user_profile}"
+  Dir.mkdir "user_specific/#{user_profile}"
+  File.open("user_specific/#{user_profile}/loader", "w") do |file|
+    file.write("source ~/.user_specific/paths")
   end
-  File.new("user_specific/#{name}/paths", "w")
+  File.new("user_specific/#{user_profile}/paths", "w")
+
+	puts "What do you want your full name to be for git? "
+	git_full_name = gets.chomp
+	puts "What is the email you want to use for git? "
+	git_email = gets.chomp
+  gitconfig_template = File.read("templates/gitconfig")
+  gitconfig = gitconfig_template.gsub(/<FULL_NAME>/, git_full_name).gsub(/<EMAIL>/, git_email)
+  File.open("user_specific/#{user_profile}/gitconfig", "w") do |file|
+    file.write(gitconfig)
+	end
 else
   puts "Wicked!  I will set you up with #{user_profile}"
 end
@@ -57,6 +67,9 @@ end
 
 target = File.join(home, ".user_specific")
 `ln -s #{File.expand_path "user_specific/"}/#{user_profile}/ #{target}`
+
+target = File.join(home, ".gitconfig")
+`ln -s #{File.expand_path "user_specific/"}/#{user_profile}/gitconfig #{target}`
 
 # git push on commit
 #`echo 'git push' > .git/hooks/post-commit`

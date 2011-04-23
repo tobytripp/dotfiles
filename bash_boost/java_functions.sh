@@ -3,13 +3,14 @@
 ### Java Environment Functions ###
 # http://homepage.mac.com/shawnce/misc/java_functions_bashrc.txt
 
-J_VERSIONS_DIRECTORY="/System/Library/Frameworks/JavaVM.framework/Versions"
+JAVA_VERSIONS_DIRECTORY="/System/Library/Frameworks/JavaVM.framework/Versions"
 J_COMMANDS_SUBPATH="Commands"
+J_BIN_SUBPATH="bin"
 J_HOME_SUBPATH="Home"
 
 function availableJVMs()
 {
-	ls -1 $J_VERSIONS_DIRECTORY | grep ^[0-9].[0-9]
+	ls -1 $JAVA_VERSIONS_DIRECTORY | grep ^[0-9].[0-9]
 }
 
 function listJava()
@@ -39,16 +40,14 @@ function setJava()
 		return;
 	fi
 	
-	# If we get here the user asked for a valid JVM, so configure it
-
 	echo "Configuring Shell Environment for Java "$@
 
-	# First unset any current set java, back to default before doing configuration
+	echo "Unsetting current Java version"
 	_unsetJava
 
 	# Generate the paths needed for the JVM requested
-	local jcmd="${J_VERSIONS_DIRECTORY}/$@/${J_COMMANDS_SUBPATH}"
-	local jhome="${J_VERSIONS_DIRECTORY}/$@/${J_HOME_SUBPATH}"
+	local jcmd="${JAVA_VERSIONS_DIRECTORY}/$@/${J_HOME_SUBPATH}/${J_BIN_SUBPATH}"
+	local jhome="${JAVA_VERSIONS_DIRECTORY}/$@/${J_HOME_SUBPATH}"
 
 	# We save the original path so we can toggle back if unset
 	ORIGINAL_PATH="$PATH"
@@ -68,7 +67,7 @@ function setJava()
 function _unsetJava()
 {
 	if [ "$CURRENT_MODE_STRING" != "" ]; then
-        	PATH="$ORIGINAL_PATH"
+    PATH="$ORIGINAL_PATH"
 		JAVA_HOME="$ORIGINAL_JAVA_HOME"
 		CURRENT_MODE_STRING=""
 	fi
@@ -80,5 +79,5 @@ function unsetJava()
  	_unsetJava
 
 	echo "Current Java:"
-        java -version
+  java -version
 }

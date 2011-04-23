@@ -1,0 +1,3 @@
+export NARWHAL_ENGINE=jsc
+
+export PATH="~/Downloads/Starter/narwhal/bin:$PATH"
