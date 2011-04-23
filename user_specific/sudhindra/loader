@@ -1,3 +1,1 @@
-target = "~/.emacs.d")
-`ln -s #{File.expand_path "emacs-starter-kit/"} #{target}`
 
