@@ -71,6 +71,10 @@ target = File.join(home, ".user_specific")
 target = File.join(home, ".gitconfig")
 `ln -s #{File.expand_path "user_specific/"}/#{user_profile}/gitconfig #{target}`
 
+if File.exist?("emacs-starter-kit")
+  target = File.join(home, ".emacs.d")
+  `ln -s #{File.expand_path "emacs-starter-kit/"} #{target}`
+end
 # git push on commit
 #`echo 'git push' > .git/hooks/post-commit`
 #`chmod 755 .git/hooks/post-commit`
