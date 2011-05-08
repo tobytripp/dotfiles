@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 home = File.expand_path('~')
-backup = File.join(home, "backup")
+backup = File.join(home, ".backup")
 Dir.mkdir backup unless File.exists? backup
 
 puts "Hey"
@@ -27,9 +27,17 @@ if user_profile.nil?
   puts "Awesome, I will create #{user_profile}"
   Dir.mkdir "user_specific/#{user_profile}"
   File.open("user_specific/#{user_profile}/loader", "w") do |file|
+    file.write("source ~/.user_specific/environment")
     file.write("source ~/.user_specific/paths")
+    file.write("source ~/.user_specific/aliases")
   end
+  
+  File.open("user_specific/#{user_profile}/environment", "w") do |file|
+    file.write("export EDITOR=vim")
+  end
+
   File.new("user_specific/#{user_profile}/paths", "w")
+  File.new("user_specific/#{user_profile}/aliases", "w")
 
 	puts "What do you want your full name to be for git? "
 	git_full_name = gets.chomp

@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 home = File.expand_path('~')
-backup = File.join(home, "backup")
+backup = File.join(home, ".backup")
 
 puts "Removing bash_boost... Sorry to see you go :("
 `rm #{File.join(home, ".bash_boost")}`
