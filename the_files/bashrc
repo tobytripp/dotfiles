@@ -2,10 +2,6 @@ if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
 
-if [[ -s /Users/ThoughtWorks/.rvm/scripts/rvm ]] ; then 
-  source /Users/ThoughtWorks/.rvm/scripts/rvm ; 
-fi
-
 if [[ -s "$HOME/.rvm/scripts/rvm" ]]  ; then 
   source "$HOME/.rvm/scripts/rvm" ; 
 fi
