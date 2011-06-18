@@ -10,6 +10,9 @@ source ~/.bashrc
 echo -e "version control boost...\c" >> $LOGFILE
 source ~/.bash_boost/bash_vcs.sh
 
+echo -e "rvm boost...\c" >> $LOGFILE
+source ~/.bash_boost/bash_rvm.sh
+
 echo -e "bash_login...\c" >> $LOGFILE
 source ~/.bash_login
 
