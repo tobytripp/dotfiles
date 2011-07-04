@@ -1,1 +1,3 @@
 export PATH="~/Downloads/Starter/narwhal/bin:$PATH"
+
+export PYTHONPATH="/Users/disco/disco/bin:/Users/disco/disco/lib"

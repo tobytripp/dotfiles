@@ -1,1 +1,2 @@
 . ~/.aliases
+source ~/.bash_boost/remote_login_prompt.sh

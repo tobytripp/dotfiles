@@ -1,5 +1,3 @@
-source ~/.bash_boost/bash_colors.sh
-
 function parse_git_branch {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
@@ -65,11 +63,3 @@ function detect_vcs {
     __cwd="$(basename "${__cwd}")"
     __cwd=${__cwd/$base_dir/\/}
 }
-
-function prompt {    
-    PROMPT_COMMAND=detect_vcs
-    PS1="$CYAN\u$NORMAL@$GREEN\h:$GREEN\${__vcs_prefix}$CYAN\${base_dir}\[\$(check_git_changes)\]\${__vcs_branch_tag}$CYAN\${__cwd}$NORMAL \$ "
-  # PS2='> '
-  # PS4='+ '
-}
-prompt
