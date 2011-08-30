@@ -1,6 +1,6 @@
 --- 
 gem: --no-ri --run-tests
-rdoc: --inline-source --line-numbers --template=jamis
+rdoc: --inline-source --line-numbers
 :verbose: true
 :benchmark: false
 :sources: 

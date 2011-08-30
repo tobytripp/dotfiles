@@ -56,7 +56,10 @@ then
 fi
 
 NODE_BIN=/usr/local/share/npm/bin
-NODE_LIB=/usr/lcoal/lib/node
+NODE_LIB=/usr/local/lib/node
 if [[ -s $NODE_BIN ]]; then export PATH=$NODE_BIN:$PATH; fi
+
+CABAL_BIN=$HOME/.cabal/bin
+if [[ -s $CABAL_BIN ]]; then export PATH=$CABAL_BIN:$PATH; fi
 
 export PATH=~/bin:$PATH
