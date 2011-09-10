@@ -1,3 +1,7 @@
 export PATH="~/Downloads/Starter/narwhal/bin:$PATH"
 
 export PYTHONPATH="/Users/disco/disco/bin:/Users/disco/disco/lib"
+
+export NODE_PATH="/usr/local/lib/node:~/node_modules/jasmine-node/"
+
+export PATH="$PATH:$NODE_PATH/bin"
