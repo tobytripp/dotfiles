@@ -46,12 +46,13 @@ function detect_vcs {
     }
 
     hg_dir() {
-        base_dir="."
-        sub_dir=$(sub_dir "${base_dir}")
-        ref=$(< "${base_dir}/.hg/branch")
-        VCS="hg"
+        base_dir=$PWD
+        if [ -d "$base_dir/.hg" ]; then
+          VCS="hg"
+          vcs_branch=$(hg branch)
+        fi
     }
-    
+
     git_dir || svn_dir || hg_dir
     
     if [ -n "$VCS" ]; then
