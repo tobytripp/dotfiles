@@ -1,4 +1,4 @@
-LOGFILE=bash_boost.log
+LOGFILE=~/bash_boost.log
 
 echo -e "--- Attempting to boost your bash..." > $LOGFILE
 
