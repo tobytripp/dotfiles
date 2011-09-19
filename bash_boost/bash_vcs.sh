@@ -45,13 +45,15 @@ function detect_vcs {
         alias revert="svn revert"
     }
 
-    # hg_dir() {
-    #     base_dir="."
-    #     ref=$(< "${base_dir}/.hg/branch")
-    #     VCS="hg"
-    # }
-    
-    git_dir || svn_dir
+    hg_dir() {
+        base_dir=$PWD
+        if [ -d "$base_dir/.hg" ]; then
+          VCS="hg"
+          vcs_branch=$(hg branch)
+        fi
+    }
+
+    git_dir || svn_dir || hg_dir
     
     if [ -n "$VCS" ]; then
       alias st="$VCS status"
