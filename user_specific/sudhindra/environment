@@ -1,2 +1,3 @@
 export NARWHAL_ENGINE=jsc
 export ALTERNATE_EDITOR=emacs EDITOR=emacsclient VISUAL=emacsclient
+export PGDATA=~/studios/pg_data

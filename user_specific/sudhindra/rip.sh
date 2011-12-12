@@ -1,3 +1,6 @@
+# usage ---
+# rip.sh /path/to/filename.vob
+
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 
