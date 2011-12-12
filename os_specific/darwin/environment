@@ -1,2 +1,3 @@
 export ARCHFLAGS="-arch x86_64"
 export JEWELER_OPTS="--rspec"
+export CC="/usr/bin/gcc-4.2"
