@@ -27,9 +27,9 @@ if user_profile.nil?
   puts "Awesome, I will create #{user_profile}"
   Dir.mkdir "user_specific/#{user_profile}"
   File.open("user_specific/#{user_profile}/loader", "w") do |file|
-    file.write("source ~/.user_specific/environment")
-    file.write("source ~/.user_specific/paths")
-    file.write("source ~/.user_specific/aliases")
+    file.write("source ~/.user_specific/environment \n")
+    file.write("source ~/.user_specific/paths \n")
+    file.write("source ~/.user_specific/aliases \n")
   end
   
   File.open("user_specific/#{user_profile}/environment", "w") do |file|
