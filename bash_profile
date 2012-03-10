@@ -29,6 +29,7 @@ if [ -f ${BASH}/bash_it.sh ]; then
 fi
 
 export NODE_PATH="/usr/local/lib/node/"
+export NODE_NO_READLINE=1
 if [[ -d $NODE_PATH ]]; then
   export PATH=/usr/local/share/npm/bin:$PATH
 fi
