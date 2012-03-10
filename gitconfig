@@ -48,3 +48,7 @@
         token = ecff5b9c54eeb9a495c37bd4429a1ddc
 [git-pair]
 	authors = Toby Tripp <ttripp@backstopsolutions.com>
+[rerere]
+    enabled = true
+[apply]
+    whitespace=fix,-indent-with-non-tab

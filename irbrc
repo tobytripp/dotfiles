@@ -15,8 +15,9 @@ rescue LoadError => e
 end
 
 IRB.conf[:IRB_RC] = Proc.new do
-  require 'console_helper' if ENV['RAILS_ENV']
-  fsuc
-  OWNER = Owner.find 7
-  COMMAND = BackstopDataDownload::HoldingDetailsImportCommand.new 20.years.ago, Time.now, OWNER
+  if ENV['RAILS_ENV']
+    require 'console_helper'
+    fsuc
+    OWNER = Owner.find 7
+  end
 end

@@ -25,11 +25,13 @@ export BUNDLER_EDITOR='emacsclient -a "" -n'
 source $HOME/.ssh_agent.sh
 
 if [ -f ${BASH}/bash_it.sh ]; then
-  source ${BASH}/bash_it.sh
+    source ${BASH}/bash_it.sh
 fi
 
 export NODE_PATH="/usr/local/lib/node/"
 export NODE_NO_READLINE=1
 if [[ -d $NODE_PATH ]]; then
-  export PATH=/usr/local/share/npm/bin:$PATH
+    export PATH=/usr/local/share/npm/bin:$PATH
 fi
+
+[[ -d $HOME/bin/magic-dollar ]] && export PATH=$PATH":$HOME/bin/magic-dollar"

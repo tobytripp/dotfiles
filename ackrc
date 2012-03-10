@@ -9,5 +9,7 @@
 --ignore-dir=logs
 --ignore-dir=.rsync_cache
 --ignore-dir=tmp
+--type-set=DUMB=TAGS
+--noDUMB
 --type-add
 ruby=.rake
