@@ -25,11 +25,14 @@ if user_profile.nil?
   puts "What should I call your user profile? "
   user_profile = gets.chomp
   puts "Awesome, I will create #{user_profile}"
+  puts "A sample user profile will be created for you in dotfiles/user_specific/#{user_profile}"
+  puts "you can override all the environment variables specified in dotfiles/os_specific/<your_os>/environment"
+  puts "you can also override or preempt path set in dotfiles/os_specific/<your_os>/paths"
   Dir.mkdir "user_specific/#{user_profile}"
   File.open("user_specific/#{user_profile}/loader", "w") do |file|
-    file.write("source ~/.user_specific/environment")
-    file.write("source ~/.user_specific/paths")
-    file.write("source ~/.user_specific/aliases")
+    file.write("source ~/.user_specific/environment \n")
+    file.write("source ~/.user_specific/paths \n")
+    file.write("source ~/.user_specific/aliases \n")
   end
   
   File.open("user_specific/#{user_profile}/environment", "w") do |file|
@@ -39,7 +42,8 @@ if user_profile.nil?
   File.new("user_specific/#{user_profile}/paths", "w")
   File.new("user_specific/#{user_profile}/aliases", "w")
 
-	puts "What do you want your full name to be for git? "
+  puts "We will also setup a default ~/.gitconfig for you... you can change the settings from dotfiles/user_specific/#{user_profile}/gitconfig"
+  puts "What do you want your full name to be for git? "
 	git_full_name = gets.chomp
 	puts "What is the email you want to use for git? "
 	git_email = gets.chomp
