@@ -1,12 +1,3 @@
 [submodule "jumplist"]
 	path = jumplist
 	url = git://github.com/rupa/j.git
-[submodule "emacs-starter-kit"]
-	path = emacs-starter-kit
-	url = http://github.com/eschulte/emacs-starter-kit/
-[submodule "twittering-mode"]
-	path = twittering-mode
-	url = http://github.com/hayamiz/twittering-mode.git
-[submodule "gabesoft_dotfiles"]
-	path = gabesoft_dotfiles
-	url = https://github.com/gabesoft/dotfiles.git
