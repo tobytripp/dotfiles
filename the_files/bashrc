@@ -24,3 +24,5 @@ if [[ -d $HOST_SETTINGS_DIR ]] ; then
   echo "Sourcing files found in $HOST_SETTINGS_DIR..."
   for file in $HOST_SETTINGS_DIR/*; do source $file; done
 fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
