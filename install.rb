@@ -87,6 +87,3 @@ if File.exist?("emacs-starter-kit")
   target = File.join(home, ".emacs.d")
   `ln -s #{File.expand_path "emacs-starter-kit/"} #{target}`
 end
-# git push on commit
-#`echo 'git push' > .git/hooks/post-commit`
-#`chmod 755 .git/hooks/post-commit`
