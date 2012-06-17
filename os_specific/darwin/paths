@@ -24,7 +24,7 @@ fi
 
 PATH=$PREEMPT_BUILTIN_RUBY:$MYSQL_HOME/bin:$PATH
 PATH=$PATH:$GIT_HOME/bin:$JRUBY_HOME/bin
-PATH=$PATH:$GIT_CORE
+#PATH=$PATH:$GIT_CORE
 PATH=$PATH:$MONGODB/bin
 
 # MacPorts Installer addition on 2010-08-23_at_10:54:52: adding an appropriate PATH variable for use with MacPorts.
