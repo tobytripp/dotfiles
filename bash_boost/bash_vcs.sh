@@ -3,14 +3,14 @@ function parse_git_branch {
 }
 
 function check_git_changes {
-  GREEN="2" 
-  RED="1"
+  GREEN=$(tput setaf 2) 
+  RED=$(tput setaf 1)
 
-  var=`git status 2> /dev/null | sed -e '/(working directory clean)$/!d' | wc -l`
-  if [ $var -ne 1 ]; then
-    tput setaf $RED
+  status=`git status 2> /dev/null | sed -e '/(working directory clean)$/!d' | wc -l`
+  if [ $status -ne 1 ]; then
+    echo $RED
   else
-    tput setaf $GREEN
+    echo $GREEN
   fi
 }
 
