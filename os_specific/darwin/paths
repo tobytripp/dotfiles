@@ -6,7 +6,6 @@ export EMACS_PATH=/Applications/Emacs.app/Contents/MacOS
 PATH=$PATH:$BUILT_IN_RUBY
 PATH=$PATH:$EMACS_PATH/bin
 
-
 # MacPorts Installer addition on 2010-08-23_at_10:54:52: adding an appropriate PATH variable for use with MacPorts.
 PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.

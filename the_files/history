@@ -2,6 +2,7 @@
 export HISTCONTROL=erasedups
 # resize history size
 export HISTSIZE=10000
+shopt -s checkwinsize
 # append to bash_history if Terminal.app quits
 shopt -s histappend
-PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+PROMPT_COMMAND="$PROMPT_COMMAND;history -a"

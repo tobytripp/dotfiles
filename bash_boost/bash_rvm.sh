@@ -1,1 +1,1 @@
-PS1="$PS1$YELLOW[\$(rvm-prompt i v p g)]$NORMAL\$ "
+PS1="$YELLOW[\$(rvm-prompt v p g)]$NORMAL\$ $PS1"
