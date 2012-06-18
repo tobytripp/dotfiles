@@ -6,26 +6,6 @@ export EMACS_PATH=/Applications/Emacs.app/Contents/MacOS
 PATH=$PATH:$BUILT_IN_RUBY
 PATH=$PATH:$EMACS_PATH/bin
 
-# Settings for non-login shells
-export JRUBY_HOME=/usr/local/lib/jruby
-export MYSQL_HOME=/usr/local/mysql
-export ANT_HOME=/opt/local/share/java/apache-ant
-export GIT_HOME=/usr/local/git
-export GIT_CORE=/usr/local/git/libexec/git-core/
-export MONGODB=/usr/local/mongodb
-
-# Put /usr/local/bin ahead of /usr/bin to preempt built-in Ruby
-export PREEMPT_BUILTIN_RUBY=~/bin:/usr/local/bin:/usr/bin:/opt/local/bin:/opt/local/sbin
-
-#JAVA_HOME should be set in the os_specific/paths but in case it isnt, we wrap it in a check
-if [ -n "${JAVA_HOME:+x}" ]; then
-  PATH=$JAVA_HOME/bin:$PATH
-fi
-
-PATH=$PREEMPT_BUILTIN_RUBY:$MYSQL_HOME/bin:$PATH
-PATH=$PATH:$GIT_HOME/bin:$JRUBY_HOME/bin
-PATH=$PATH:$GIT_CORE
-PATH=$PATH:$MONGODB/bin
 
 # MacPorts Installer addition on 2010-08-23_at_10:54:52: adding an appropriate PATH variable for use with MacPorts.
 PATH=/opt/local/bin:/opt/local/sbin:$PATH
