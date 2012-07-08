@@ -4,6 +4,8 @@ home = File.expand_path('~')
 backup = File.join(home, ".backup")
 Dir.mkdir backup unless File.exists? backup
 
+`git submodule update --init`
+
 puts "Hey"
 puts "So, BashBoost eh?"
 puts "Nice!"
