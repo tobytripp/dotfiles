@@ -106,12 +106,6 @@ if user_settings['janus']
   `git submodule update --init`
   Dir.chdir("bash_boost/janus")
   `rake`
-  `rm janus/vim/core/janus/doc/tags`
-  `rm janus/vim/langs/csv/doc/tags`
-  `rm janus/vim/langs/git/doc/tags`
-  `rm janus/vim/langs/textile/doc/tags`
-  `rm janus/vim/tools/narrowregion/doc/tags`
-  `rm janus/vim/tools/vimwiki/doc/tags`
-  `rm janus/vim/tools/zoomwin/doc/tags`
+  `git submodule foreach git clean -f`
   Dir.chdir("../..")
 end
