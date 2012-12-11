@@ -11,5 +11,8 @@
 --ignore-dir=tmp
 --type-set=DUMB=TAGS
 --noDUMB
+--ruby
+--js
+--elisp
 --type-add
 ruby=.rake
