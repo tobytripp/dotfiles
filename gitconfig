@@ -1,6 +1,6 @@
 [User]
-	name = Toby Tripp
-	email = ttripp+github@gmail.com
+        name = Toby Tripp
+        email = ttripp+github@gmail.com
 [color]
         diff        = auto
         status      = auto
@@ -25,16 +25,21 @@
         renames     = true
 [alias]
         changes=diff --name-status -r
-        st=status
+        st=status -s
         co=checkout
         ci=commit -a
         undo=checkout -f
         punch=push
+        lol = log --graph --decorate --pretty=oneline --abbrev-commit
+        unstage=reset HEAD
+        uncommit=reset --soft HEAD^
 [gui]
         recentrepo = /Users/toby/Code/Ruby/specr
 [core]
         excludesfile = /Users/toby/.gitignore
-        whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+        whitespace   = trailing-space,cr-at-eol
+[apply]
+        whitespace = fix
 [mirror]
         summary = true
 [branch]
@@ -42,13 +47,11 @@
 [help]
         autocorrect = 1
 [push]
-        default = matching
+        default = current
 [github]
         user = tobytripp
         token = ecff5b9c54eeb9a495c37bd4429a1ddc
 [git-pair]
-	authors = Toby Tripp <ttripp@backstopsolutions.com>
+        authors = Toby Tripp <ttripp@backstopsolutions.com>
 [rerere]
-    enabled = true
-[apply]
-    whitespace=fix,-indent-with-non-tab
+        enabled = true
