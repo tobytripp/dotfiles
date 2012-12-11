@@ -3,3 +3,5 @@ alias raek=rake
 alias gti=git
 
 alias up='cd ..;'
+alias rtags="find . -name '*.rb' | xargs /usr/local/bin/ctags -a -e -f TAGS"
+alias node="env NODE_NO_READLINE=1 node"

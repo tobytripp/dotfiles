@@ -34,7 +34,6 @@ elif [[ -d $HOME/.`hostname` ]]; then
 fi
 
 if [[ -d $HOST_SETTINGS_DIR ]] ; then
-    echo "Sourcing files found in $HOST_SETTINGS_DIR..."
     for file in $HOST_SETTINGS_DIR/*; do source $file; done
 fi
 
@@ -47,9 +46,8 @@ NODE_BIN=/usr/local/share/npm/bin
 NODE_LIB=/usr/local/lib/node
 if [[ -s $NODE_BIN ]]; then export PATH=$NODE_BIN:$PATH; fi
 
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 CABAL_BIN=$HOME/.cabal/bin
 if [[ -s $CABAL_BIN ]]; then export PATH=$CABAL_BIN:$PATH; fi
 
-export PATH=~/bin:$PATH
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH=~/bin:/usr/local/bin:$PATH
