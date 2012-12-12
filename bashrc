@@ -7,7 +7,7 @@ fi
 # Settings for non-login shells
 export JEWELER_OPTS="--rspec"
 
-export HISTCONTROL=erasedups
+export HISTCONTROL=ignoreboth
 export HISTSIZE=10000
 export HISTIGNORE="clear:bg:fg:cd:cd -:exit:date:w:* --help"
 export HISTTIMEFORMAT='%F %T '
