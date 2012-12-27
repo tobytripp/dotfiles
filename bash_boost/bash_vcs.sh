@@ -6,7 +6,7 @@ function check_git_changes {
   GREEN=$(tput setaf 2) 
   RED=$(tput setaf 1)
 
-  status=`git status 2> /dev/null | sed -e '/(working directory clean)$/!d' | wc -l`
+  status=`git status 2> /dev/null | grep 'working directory clean$' | wc -l`
   if [ $status -ne 1 ]; then
     echo $RED
   else
