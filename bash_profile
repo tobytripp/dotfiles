@@ -19,7 +19,7 @@ if [ -f ~/.oraclerc ]; then
     source ~/.oraclerc
 fi
 
-export EDITOR='emacsclient -a "" --no-wait'
+export EDITOR=e
 export BUNDLER_EDITOR='emacsclient -a "" -n'
 
 source $HOME/.ssh_agent.sh

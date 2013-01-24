@@ -32,5 +32,8 @@ defaults write com.apple.iTunes invertStoreLinks true
 defaults write com.apple.iTunes full-window -1
 
 defaults write com.apple.mail PreferPlainText -bool TRUE
+
 echo "Enable subpixel font rendering on non-Apple LCDs"
 defaults write NSGlobalDomain AppleFontSmoothing -int 2
+
+defaults write com.apple.dashboard mcx-disabled -boolean YES
