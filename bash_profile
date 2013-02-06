@@ -19,8 +19,10 @@ if [ -f ~/.oraclerc ]; then
     source ~/.oraclerc
 fi
 
-export EDITOR='emacsclient -t'
-export BUNDLER_EDITOR='emacsclient -a "" -t'
+export EDITOR=e
+export BUNDLER_EDITOR='emacsclient -a "" -n'
+export LANG=en_US.UTF-8
+
 
 source $HOME/.ssh_agent.sh
 
