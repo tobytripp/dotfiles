@@ -3,7 +3,7 @@ shelltitle "$ |bash"
 autodetach on
 
 screen -t Shell 0 bash
-screen -t Emacs 1 emacs -nw
+# screen -t Emacs 1 emacs -nw
 select 0
 
 

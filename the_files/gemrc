@@ -1,6 +1,6 @@
 --- 
 :verbose: true
-gem: --no-ri --no-rdoc
+gem: --no-ri --no-rdoc --run-tests
 
 :backtrace: false
 :benchmark: false
@@ -8,6 +8,7 @@ gem: --no-ri --no-rdoc
 - http://gems.rubyforge.org/
 - http://gems.github.com
 - http://gemcutter.org
+- http://rubygems.org
 :update_sources: true
 rdoc: --inline-source --line-numbers
 :bulk_threshold: 1000
