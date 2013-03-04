@@ -24,3 +24,13 @@ if [[ -d $HOST_SETTINGS_DIR ]] ; then
   echo "Sourcing files found in $HOST_SETTINGS_DIR..."
   for file in $HOST_SETTINGS_DIR/*; do source $file; done
 fi
+
+LOGFILE=~/bash_boost.log
+
+# loading these here so that PS1 is colored and to make byobu happy
+# http://manpages.ubuntu.com/manpages/precise/man1/byobu.1.html
+echo -e "version control boost...\c" >> $LOGFILE
+source ~/.bash_boost/bash_vcs.sh
+
+echo -e "custom prompt...\c" >> $LOGFILE
+source ~/.bash_boost/profile_prompt.sh

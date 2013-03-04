@@ -1,6 +1,7 @@
 --- 
 :verbose: true
-gem: --no-ri --run-tests
+gem: --no-ri --no-rdoc
+
 :backtrace: false
 :benchmark: false
 :sources: 

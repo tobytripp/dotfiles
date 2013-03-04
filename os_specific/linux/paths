@@ -1,5 +1,6 @@
 # Settings for non-login shells
-export JAVA_HOME=/usr/lib/jvm/java-6-sun
+
+export JAVA_HOME=/usr/lib/jvm/jdk1.7.0_07
 
 # Settings for non-login shells
 export JRUBY_HOME=/usr/local/lib/jruby

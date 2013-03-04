@@ -7,12 +7,6 @@ echo -e "bash_profile...\c" >> $LOGFILE
 echo -e "bashrc...\c" >> $LOGFILE
 source ~/.bashrc
 
-echo -e "version control boost...\c" >> $LOGFILE
-source ~/.bash_boost/bash_vcs.sh
-
-echo -e "custom prompt...\c" >> $LOGFILE
-source ~/.bash_boost/profile_prompt.sh
-
 echo -e "rvm boost...\c" >> $LOGFILE
 source ~/.bash_boost/bash_rvm.sh
 
