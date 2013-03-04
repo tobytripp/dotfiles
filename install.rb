@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+require 'yaml'
 
 home = File.expand_path('~')
 backup = File.join(home, ".backup")
@@ -22,14 +23,18 @@ if !user_directories.empty?
 end
 
 if user_profile.nil?
+  settings = {}
   puts "What should I call your user profile? "
   user_profile = gets.chomp
   puts "Awesome, I will create #{user_profile}"
+  puts "A sample user profile will be created for you in dotfiles/user_specific/#{user_profile}"
+  puts "you can override all the environment variables specified in dotfiles/os_specific/<your_os>/environment"
+  puts "you can also override or preempt path set in dotfiles/os_specific/<your_os>/paths"
   Dir.mkdir "user_specific/#{user_profile}"
   File.open("user_specific/#{user_profile}/loader", "w") do |file|
-    file.write("source ~/.user_specific/environment")
-    file.write("source ~/.user_specific/paths")
-    file.write("source ~/.user_specific/aliases")
+    file.write("source ~/.user_specific/environment \n")
+    file.write("source ~/.user_specific/paths \n")
+    file.write("source ~/.user_specific/aliases \n")
   end
   
   File.open("user_specific/#{user_profile}/environment", "w") do |file|
@@ -39,7 +44,8 @@ if user_profile.nil?
   File.new("user_specific/#{user_profile}/paths", "w")
   File.new("user_specific/#{user_profile}/aliases", "w")
 
-	puts "What do you want your full name to be for git? "
+  puts "We will also setup a default ~/.gitconfig for you... you can change the settings from dotfiles/user_specific/#{user_profile}/gitconfig"
+  puts "What do you want your full name to be for git? "
 	git_full_name = gets.chomp
 	puts "What is the email you want to use for git? "
 	git_email = gets.chomp
@@ -48,10 +54,22 @@ if user_profile.nil?
   File.open("user_specific/#{user_profile}/gitconfig", "w") do |file|
     file.write(gitconfig)
 	end
+  puts "Would you like for us provide you with a powerful vim configuration, carlhuda's janus (Y/n)? "
+  janus = gets.chomp.upcase
+  settings['janus'] = janus == "" || janus == "Y" || janus == "YES"
+  File.open("user_specific/#{user_profile}/settings.yaml", "w") do |file|
+    file.write(YAML::dump(settings))
+  end
 else
   puts "Wicked!  I will set you up with #{user_profile}"
 end
 
+user_settings = {}
+if File.exists?("user_specific/#{user_profile}/settings.yaml")
+  File.open("user_specific/#{user_profile}/settings.yaml", "r").each do |object|
+    user_settings = YAML::load(object)
+  end
+end
 
 `mkdir #{backup}`
 Dir.chdir("the_files")
@@ -60,8 +78,8 @@ Dir["*"].each do |file|
   `mv -f #{target} #{backup}`
   `ln -s #{File.expand_path file} #{target}`
 end
-
 Dir.chdir("..")
+
 BASH_BOOST = "bash_boost"
 target = File.join(home, ".#{BASH_BOOST}")
 `ln -s #{File.expand_path BASH_BOOST} #{target}`
@@ -83,6 +101,11 @@ if File.exist?("emacs-starter-kit")
   target = File.join(home, ".emacs.d")
   `ln -s #{File.expand_path "emacs-starter-kit/"} #{target}`
 end
-# git push on commit
-#`echo 'git push' > .git/hooks/post-commit`
-#`chmod 755 .git/hooks/post-commit`
+
+if user_settings['janus']
+  `git submodule update --init`
+  Dir.chdir("bash_boost/janus")
+  `rake`
+  `git submodule foreach git clean -f`
+  Dir.chdir("../..")
+end

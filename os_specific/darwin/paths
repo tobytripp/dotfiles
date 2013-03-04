@@ -14,6 +14,9 @@ export GIT_HOME=/usr/local/git
 export GIT_CORE=/usr/local/git/libexec/git-core/
 export MONGODB=/usr/local/mongodb
 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
 # Put /usr/local/bin ahead of /usr/bin to preempt built-in Ruby
 export PREEMPT_BUILTIN_RUBY=~/bin:/usr/local/bin:/usr/bin:/opt/local/bin:/opt/local/sbin
 
@@ -24,7 +27,8 @@ fi
 
 PATH=$PREEMPT_BUILTIN_RUBY:$MYSQL_HOME/bin:$PATH
 PATH=$PATH:$GIT_HOME/bin:$JRUBY_HOME/bin
-PATH=$PATH:$GIT_CORE
+PATH=$PATH:/usr/local/share/npm/bin
+#PATH=$PATH:$GIT_CORE
 PATH=$PATH:$MONGODB/bin
 
 # MacPorts Installer addition on 2010-08-23_at_10:54:52: adding an appropriate PATH variable for use with MacPorts.

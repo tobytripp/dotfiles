@@ -35,3 +35,7 @@ Install with:
 
 This just clones or updates the repository and links back bashrc and screenrc.
 
+Color Themes for OSX
+--------------------
+
+When using dotfiles on Mac OSX the IR_Black theme works the best and renders colors effectively. Here is a [how to install IR_Black theme on OSX](http://osxdaily.com/2012/02/24/ir_black-theme-add-colors-easily-to-the-terminal-in-mac-os-x/).

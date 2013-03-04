@@ -10,6 +10,7 @@ export GIT_HOME=/usr/local/git
 export GIT_CORE=/usr/local/git/libexec/git-core/
 export MONGODB=/usr/local/mongodb
 
+
 # Put /usr/local/bin ahead of /usr/bin to preempt built-in Ruby
 export PREEMPT_BUILTIN_RUBY=~/bin:/usr/local/bin:/usr/bin:/opt/local/bin:/opt/local/sbin
 
@@ -18,6 +19,7 @@ if [ -n "${JAVA_HOME:+x}" ]; then
   PATH=$JAVA_HOME/bin:$PATH
 fi
 
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PREEMPT_BUILTIN_RUBY:$MYSQL_HOME/bin:$PATH
 PATH=$PATH:$GIT_HOME/bin:$JRUBY_HOME/bin
 PATH=$PATH:$GIT_CORE
