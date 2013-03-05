@@ -39,9 +39,3 @@ echo -e "user specific boost..." >> $LOGFILE
 source ~/.user_specific/loader
 
 echo "--- Boost process Successful and Complete! (details logged to $LOGFILE)"
-
-alias mingle='cd ~/studios/mingle'
-alias jss='script/jruby_mingle_server'
-alias ss='script/server'
-alias gituser='~/studios/git-tools/gituser'
-
