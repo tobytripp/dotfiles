@@ -3,10 +3,10 @@ function parse_git_branch {
 }
 
 function check_git_changes {
-  GREEN=$(tput setaf 2) 
+  GREEN=$(tput setaf 2)
   RED=$(tput setaf 1)
 
-  status=`git status 2> /dev/null | grep 'working directory clean$' | wc -l`
+  status=`git status 2> /dev/null | grep 'working directory clean' | wc -l`
   if [ $status -ne 1 ]; then
     echo $RED
   else
