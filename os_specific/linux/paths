@@ -1,9 +1,3 @@
-# Settings for non-login shells
-
-export JAVA_HOME=/usr/lib/jvm/jdk1.7.0_07
-
-# Settings for non-login shells
-export JRUBY_HOME=/usr/local/lib/jruby
 export MYSQL_HOME=/usr/local/mysql
 export ANT_HOME=/opt/local/share/java/apache-ant
 export GIT_HOME=/usr/local/git
