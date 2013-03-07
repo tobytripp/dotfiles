@@ -37,17 +37,12 @@ if [[ -d $HOST_SETTINGS_DIR ]] ; then
     for file in $HOST_SETTINGS_DIR/*; do source $file; done
 fi
 
-# rvm-install added:
-if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
-
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 NODE_BIN=/usr/local/share/npm/bin
 NODE_LIB=/usr/local/lib/node
 if [[ -s $NODE_BIN ]]; then export PATH=$NODE_BIN:$PATH; fi
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 CABAL_BIN=$HOME/.cabal/bin
 if [[ -s $CABAL_BIN ]]; then export PATH=$CABAL_BIN:$PATH; fi
 

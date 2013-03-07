@@ -1,4 +1,0 @@
-export ANT_OPTS="-Xms512m -Xmx2048m"
-export JAVA_HOME=/Library/Java/Home
-
-alias fb_test='ant -lib antlib/lib -nice 10 full-build-test'
