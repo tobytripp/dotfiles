@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+require 'yaml'
 
 home = File.expand_path('~')
 backup = File.join(home, ".backup")
@@ -22,6 +23,7 @@ if !user_directories.empty?
 end
 
 if user_profile.nil?
+  settings = {}
   puts "What should I call your user profile? "
   user_profile = gets.chomp
   puts "Awesome, I will create #{user_profile}"
@@ -52,10 +54,22 @@ if user_profile.nil?
   File.open("user_specific/#{user_profile}/gitconfig", "w") do |file|
     file.write(gitconfig)
 	end
+  puts "Would you like for us provide you with a powerful vim configuration, carlhuda's janus (Y/n)? "
+  janus = gets.chomp.upcase
+  settings['janus'] = janus == "" || janus == "Y" || janus == "YES"
+  File.open("user_specific/#{user_profile}/settings.yaml", "w") do |file|
+    file.write(YAML::dump(settings))
+  end
 else
   puts "Wicked!  I will set you up with #{user_profile}"
 end
 
+user_settings = {}
+if File.exists?("user_specific/#{user_profile}/settings.yaml")
+  File.open("user_specific/#{user_profile}/settings.yaml", "r").each do |object|
+    user_settings = YAML::load(object)
+  end
+end
 
 `mkdir #{backup}`
 Dir.chdir("the_files")
@@ -64,8 +78,8 @@ Dir["*"].each do |file|
   `mv -f #{target} #{backup}`
   `ln -s #{File.expand_path file} #{target}`
 end
-
 Dir.chdir("..")
+
 BASH_BOOST = "bash_boost"
 target = File.join(home, ".#{BASH_BOOST}")
 `ln -s #{File.expand_path BASH_BOOST} #{target}`
@@ -86,4 +100,12 @@ target = File.join(home, ".gitconfig")
 if File.exist?("emacs-starter-kit")
   target = File.join(home, ".emacs.d")
   `ln -s #{File.expand_path "emacs-starter-kit/"} #{target}`
+end
+
+if user_settings['janus']
+  `git submodule update --init`
+  Dir.chdir("bash_boost/janus")
+  `rake`
+  `git submodule foreach git clean -f`
+  Dir.chdir("../..")
 end

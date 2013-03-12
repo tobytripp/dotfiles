@@ -2,8 +2,8 @@ if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
 
-if [[ -s "$HOME/.rvm/scripts/rvm" ]]  ; then 
-  source "$HOME/.rvm/scripts/rvm" ; 
+if [[ -s "$HOME/.rvm/scripts/rvm" ]]  ; then
+  source "$HOME/.rvm/scripts/rvm" ;
 fi
 
 SCRIPT_PATH="${BASH_SOURCE[0]}"
@@ -25,4 +25,46 @@ if [[ -d $HOST_SETTINGS_DIR ]] ; then
   for file in $HOST_SETTINGS_DIR/*; do source $file; done
 fi
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+LOGFILE=~/bash_boost.log
+
+echo -e "--- Attempting to boost your bash..." > $LOGFILE
+
+echo -e "version control boost...\c" >> $LOGFILE
+source ~/.bash_boost/bash_vcs.sh
+
+echo -e "custom prompt...\c" >> $LOGFILE
+source ~/.bash_boost/profile_prompt.sh
+
+echo -e "rvm boost...\c" >> $LOGFILE
+source ~/.bash_boost/bash_rvm.sh
+
+echo -e "aliases...\c" >> $LOGFILE
+source ~/.aliases
+
+echo -e "cd command boost...\c" >> $LOGFILE
+source ~/.bash_boost/cdargs-bash.sh
+source ~/.bash_boost/cdargs.sh
+
+echo -e "history boost...\c" >> $LOGFILE
+source ~/.history
+
+echo -e "terminal_colors...\c" >> $LOGFILE
+source ~/.bash_boost/terminal_colors
+
+echo -e "environment...\c" >> $LOGFILE
+source ~/.os_specific/environment
+
+echo -e "emacs_server...\c" >> $LOGFILE
+source ~/.bash_boost/emacs_server
+
+echo -e "paths..." >> $LOGFILE
+source ~/.os_specific/paths
+
+echo -e "java functions..." >> $LOGFILE
+source ~/.bash_boost/java_functions.sh
+
+echo -e "user specific boost..." >> $LOGFILE
+source ~/.user_specific/loader
+
+echo "--- Boost process Successful and Complete! (details logged to $LOGFILE)"

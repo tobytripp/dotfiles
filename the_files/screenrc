@@ -1,7 +1,3 @@
-hardstatus alwayslastline "%{.kW}%-Lw%{.bW}%n %t%{-}%+Lw %=%{..G} %l %u %H %Y-%m-%d %c "
-defscrollback 5000
-bind b eval "writebuf" "exec sh -c 'pbcopy < /tmp/screen-exchange'"
-
 shell -$SHELL
 shelltitle "$ |bash"
 autodetach on
@@ -9,3 +5,31 @@ autodetach on
 screen -t Shell 0 bash
 # screen -t Emacs 1 emacs -nw
 select 0
+
+
+# Allow bold colors - necessary for some reason
+attrcolor b ".I"
+
+# Tell screen how to set colors. AB = background, AF=foreground
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+
+# Enables use of shift-PgUp and shift-PgDn
+termcapinfo xterm|xterms|xs|rxvt ti@:te@
+
+# Erase background with current bg color
+defbce "on"
+
+# Enable 256 color term
+term xterm-256color
+
+# Cache 30000 lines for scroll back
+defscrollback 30000
+
+hardstatus alwayslastline
+# Very nice tabbed colored hardstatus line
+hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H%{KW}|%{KY}%101`%{KW}|%D %M %d %Y%{= Kc} %C%A%{-}'
+
+# Hide hardstatus: ctrl-a f
+bind f eval "hardstatus ignore"
+# Show hardstatus: ctrl-a F
+bind F eval "hardstatus alwayslastline"

@@ -1,5 +1,5 @@
 alias sl=ls
-alias la='ls -la'
+alias la='ls -lah'
 
 alias 'dir'='ls -la | more'
 alias 'port'='/opt/local/bin/port'
