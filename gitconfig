@@ -1,6 +1,6 @@
 [User]
-	name  = Toby Tripp
-	email = toby.tripp+github@gmail.com
+        name  = Toby Tripp
+        email = toby.tripp+github@gmail.com
 [color]
         diff        = auto
         status      = auto
@@ -27,7 +27,7 @@
         changes=diff --name-status -r
         st=status -s
         co=checkout
-        ci=commit -a
+        ci=commit -a --verbose
         undo=checkout -f
         punch=push
         lol = log --graph --decorate --pretty=oneline --abbrev-commit

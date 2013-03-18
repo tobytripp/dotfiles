@@ -17,7 +17,7 @@ end
 IRB.conf[:IRB_RC] = Proc.new do
   if ENV['RAILS_ENV']
     require 'console_helper'
-    fsuc
+#    fsuc
     OWNER = Owner.find 7
   end
 end

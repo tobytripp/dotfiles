@@ -18,6 +18,7 @@ export CLICOLOR=true
 export LSCOLORS=bxfxcxdxbxegedabagacad
 
 export ARCHFLAGS="-arch x86_64"
+export CFLAGS="-Wno-error=shorten-64-to-32 -g -O2"
 
 SCRIPT_PATH="${BASH_SOURCE[0]}"
 if [[ -h $SCRIPT_PATH ]] ; then

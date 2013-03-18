@@ -42,3 +42,4 @@ export CONFIGURE_OPTS=--with-readline-dir=`brew --prefix readline`
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 [[ -d $HOME/bin/magic-dollar ]] && export PATH=$PATH":$HOME/bin/magic-dollar"
+eval "$(rbenv init -)"
