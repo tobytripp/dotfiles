@@ -9,12 +9,6 @@
   ui = auto
 [diff]
   renames = true
-[alias]
-  changes=diff --name-status -r
-  st=status
-  co=checkout
-  ci=commit -a
-  undo=checkout -f
 [core]
   excludesfile = ~/.gitignore
 [mirror]
