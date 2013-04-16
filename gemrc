@@ -1,3 +1,5 @@
 ---
 gem: --no-ri --run-tests
 rdoc: --inline-source --line-numbers --format=html
+install: --env-shebang
+update:  --env-shebang
