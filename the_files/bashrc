@@ -53,7 +53,7 @@ echo -e "terminal_colors...\c" >> $LOGFILE
 source ~/.bash_boost/terminal_colors
 
 echo -e "environment...\c" >> $LOGFILE
-source ~/.os_specific/environment
+source ~/.os_specific/loader
 
 echo -e "emacs_server...\c" >> $LOGFILE
 source ~/.bash_boost/emacs_server

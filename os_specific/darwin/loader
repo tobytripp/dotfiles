@@ -1,0 +1,3 @@
+source ~/.os_specific/environment
+source ~/.os_specific/paths
+source ~/.os_specific/aliases
