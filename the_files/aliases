@@ -15,3 +15,8 @@ alias untar="tar -xvf"
 alias up='cd ..;'
 alias rtags="find . -name '*.rb' | xargs /usr/local/bin/ctags -a -e -f TAGS"
 alias search="find . | xargs grep "
+
+alias claer='clear'
+alias jss='./script/jruby_mingle_server'
+alias ass='rake asset:compile_and_build_all'
+alias mingle='cd ~/mingle'
