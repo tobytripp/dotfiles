@@ -2,15 +2,10 @@ alias sl=ls
 alias la='ls -lah'
 
 alias 'dir'='ls -la | more'
-alias 'port'='/opt/local/bin/port'
-alias 'm'='mate'
 alias 'o'='open'
 alias gemdoc='gem environment gemdir'/doc
-alias home="cd ~ ; ls"
 alias cp="cp -i"
 alias mv="mv -i"
-alias del="/bin/rm -rf"
-alias untar="tar -xvf"
 
 alias up='cd ..;'
 alias rtags="find . -name '*.rb' | xargs /usr/local/bin/ctags -a -e -f TAGS"
