@@ -1,5 +1,5 @@
 if [ "$TERM" != "dumb" ]; then
-  if [ "`tty -s && tput colors`" == "256" ]; then
+  if[ "`tty -s && tput colors`" == "256" ]; then
     [ -e "$HOME/.bash_boost/dir_colors" ] &&
     DIR_COLORS="$HOME/.bash_boost/dir_colors" [ -e "$DIR_COLORS" ] || DIR_COLORS=""
     eval "`dircolors -b $DIR_COLORS`"

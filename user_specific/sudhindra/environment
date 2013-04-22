@@ -1,3 +1,6 @@
 export NARWHAL_ENGINE=jsc
 export ALTERNATE_EDITOR=vim EDITOR=vim VISUAL=vim
 export PGDATA=~/studios/pg_data
+
+export ANDROID_HOME=~/opensource/android/adt-bundle-mac/sdk
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/tools
