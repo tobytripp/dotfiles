@@ -13,10 +13,6 @@
   co=checkout
 [diff]
   renames = true
-[alias]
-  st = status
-  ci = commit
-  co = checkout
 [core]
   excludesfile = ~/.gitignore
 [mirror]
