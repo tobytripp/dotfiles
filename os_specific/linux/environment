@@ -1,8 +1,10 @@
-if [ "$TERM" != "dumb" ]; then
-    [ -e "$HOME/.bash_boost/dir_colors" ] &&
-    DIR_COLORS="$HOME/.bash_boost/dir_colors" [ -e "$DIR_COLORS" ] || DIR_COLORS=""
-    eval "`dircolors -b $DIR_COLORS`"
-    alias ls='ls --color=auto'
+if [ "`tty -s && tput colors`" == "256" ]; then
+    if [ "$TERM" != "dumb" ]; then
+        [ -e "$HOME/.bash_boost/dir_colors" ] &&
+        DIR_COLORS="$HOME/.bash_boost/dir_colors" [ -e "$DIR_COLORS" ] || DIR_COLORS=""
+        eval "`dircolors -b $DIR_COLORS`"
+        alias ls='ls --color=auto'
+    fi
 fi
 
 export ARCHFLAGS="-arch x86_64"

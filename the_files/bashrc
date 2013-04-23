@@ -26,13 +26,11 @@ LOGFILE=~/bash_boost.log
 
 echo -e "--- Attempting to boost your bash..." > $LOGFILE
 
-if [ "`tty -s && tput colors`" == "256" ]; then
-  echo -e "version control boost...\c" >> $LOGFILE
-  source ~/.bash_boost/bash_vcs.sh
+echo -e "version control boost...\c" >> $LOGFILE
+source ~/.bash_boost/bash_vcs.sh
 
-  echo -e "custom prompt...\c" >> $LOGFILE
-  source ~/.bash_boost/profile_prompt.sh
-fi
+echo -e "custom prompt...\c" >> $LOGFILE
+source ~/.bash_boost/profile_prompt.sh
 
 echo -e "rvm boost...\c" >> $LOGFILE
 source ~/.bash_boost/bash_rvm.sh
