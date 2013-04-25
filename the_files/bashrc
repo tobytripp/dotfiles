@@ -2,65 +2,44 @@ if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
 
-SCRIPT_PATH="${BASH_SOURCE[0]}"
-if [[ -h $SCRIPT_PATH ]] ; then
-  while [[ -h $SCRIPT_PATH ]] ; do SCRIPT_PATH=`readlink $SCRIPT_PATH`; done
-fi
-
-SCRIPT_DIR=`dirname $SCRIPT_PATH`
-
-# Load host-specific settings, if any
-if [[ -d $SCRIPT_DIR/`hostname` ]]; then
-  HOST_SETTINGS_DIR=$SCRIPT_DIR/`hostname`
-elif [[ -d $HOME/.`hostname` ]]; then
-  HOST_SETTINGS_DIR=$HOME/.`hostname`
-fi
-
-if [[ -d $HOST_SETTINGS_DIR ]] ; then
-  cat > $LOGFILE <<<"Sourcing files found in $HOST_SETTINGS_DIR..."
-  for file in $HOST_SETTINGS_DIR/*; do source $file; done
-fi
-
-
 LOGFILE=~/bash_boost.log
+cat >> $LOGFILE <<< "--- Attempting to boost your bash..."
 
-cat > $LOGFILE <<<"--- Attempting to boost your bash..."
-
-cat > $LOGFILE <<<"version control boost...\c" 
+cat >> $LOGFILE <<< "version control boost..." 
 source ~/.bash_boost/bash_vcs.sh
 
-cat > $LOGFILE <<<"custom prompt...\c" 
+cat >> $LOGFILE <<< "custom prompt..." 
 source ~/.bash_boost/profile_prompt.sh
 
-cat > $LOGFILE <<<"rvm boost...\c" 
+cat >> $LOGFILE <<< "rvm boost..." 
 source ~/.bash_boost/bash_rvm.sh
 
-cat > $LOGFILE <<<"aliases...\c" 
+cat >> $LOGFILE <<< "aliases..." 
 source ~/.aliases
 
-cat > $LOGFILE <<<"cd command boost...\c" 
+cat >> $LOGFILE <<< "cd command boost..." 
 source ~/.bash_boost/cdargs-bash.sh
 source ~/.bash_boost/cdargs.sh
 
-cat > $LOGFILE <<<"history boost...\c" 
+cat >> $LOGFILE <<< "history boost..." 
 source ~/.history
 
-cat > $LOGFILE <<<"terminal_colors...\c" 
+cat >> $LOGFILE <<< "terminal_colors..." 
 source ~/.bash_boost/terminal_colors
 
-cat > $LOGFILE <<<"environment...\c" 
+cat >> $LOGFILE <<< "environment..." 
 source ~/.os_specific/loader
 
-cat > $LOGFILE <<<"emacs_server...\c" 
+cat >> $LOGFILE <<< "emacs_server..." 
 source ~/.bash_boost/emacs_server
 
-cat > $LOGFILE <<<"paths..." 
+cat >> $LOGFILE <<< "paths..." 
 source ~/.os_specific/paths
 
-cat > $LOGFILE <<<"java functions..." 
+cat >> $LOGFILE <<< "java functions..." 
 source ~/.bash_boost/java_functions.sh
 
-cat > $LOGFILE <<<"user specific boost..." 
+cat >> $LOGFILE <<< "user specific boost..." 
 source ~/.user_specific/loader
 
-echo "--- Boost process Successful and Complete! (details logged to $LOGFILE)"
+cat >> $LOGFILE <<< "--- Boost process Successful and Complete!"
