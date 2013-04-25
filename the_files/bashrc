@@ -17,50 +17,50 @@ elif [[ -d $HOME/.`hostname` ]]; then
 fi
 
 if [[ -d $HOST_SETTINGS_DIR ]] ; then
-  echo "Sourcing files found in $HOST_SETTINGS_DIR..."
+  cat > $LOGFILE <<<"Sourcing files found in $HOST_SETTINGS_DIR..."
   for file in $HOST_SETTINGS_DIR/*; do source $file; done
 fi
 
 
 LOGFILE=~/bash_boost.log
 
-echo -e "--- Attempting to boost your bash..." > $LOGFILE
+cat > $LOGFILE <<<"--- Attempting to boost your bash..."
 
-echo -e "version control boost...\c" >> $LOGFILE
+cat > $LOGFILE <<<"version control boost...\c" 
 source ~/.bash_boost/bash_vcs.sh
 
-echo -e "custom prompt...\c" >> $LOGFILE
+cat > $LOGFILE <<<"custom prompt...\c" 
 source ~/.bash_boost/profile_prompt.sh
 
-echo -e "rvm boost...\c" >> $LOGFILE
+cat > $LOGFILE <<<"rvm boost...\c" 
 source ~/.bash_boost/bash_rvm.sh
 
-echo -e "aliases...\c" >> $LOGFILE
+cat > $LOGFILE <<<"aliases...\c" 
 source ~/.aliases
 
-echo -e "cd command boost...\c" >> $LOGFILE
+cat > $LOGFILE <<<"cd command boost...\c" 
 source ~/.bash_boost/cdargs-bash.sh
 source ~/.bash_boost/cdargs.sh
 
-echo -e "history boost...\c" >> $LOGFILE
+cat > $LOGFILE <<<"history boost...\c" 
 source ~/.history
 
-echo -e "terminal_colors...\c" >> $LOGFILE
+cat > $LOGFILE <<<"terminal_colors...\c" 
 source ~/.bash_boost/terminal_colors
 
-echo -e "environment...\c" >> $LOGFILE
+cat > $LOGFILE <<<"environment...\c" 
 source ~/.os_specific/loader
 
-echo -e "emacs_server...\c" >> $LOGFILE
+cat > $LOGFILE <<<"emacs_server...\c" 
 source ~/.bash_boost/emacs_server
 
-echo -e "paths..." >> $LOGFILE
+cat > $LOGFILE <<<"paths..." 
 source ~/.os_specific/paths
 
-echo -e "java functions..." >> $LOGFILE
+cat > $LOGFILE <<<"java functions..." 
 source ~/.bash_boost/java_functions.sh
 
-echo -e "user specific boost..." >> $LOGFILE
+cat > $LOGFILE <<<"user specific boost..." 
 source ~/.user_specific/loader
 
 echo "--- Boost process Successful and Complete! (details logged to $LOGFILE)"
