@@ -3,7 +3,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 LOGFILE=~/bash_boost.log
-cat >> $LOGFILE <<< "--- Attempting to boost your bash..."
+cat > $LOGFILE <<< "--- Attempting to boost your bash..."
 
 cat >> $LOGFILE <<< "version control boost..." 
 source ~/.bash_boost/bash_vcs.sh

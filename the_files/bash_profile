@@ -1,6 +1,6 @@
 LOGFILE=~/bash_boost.log
 
-cat >>  $LOGFILE <<< "bash_profile...\c"
+cat >  $LOGFILE <<< "bash_profile...\c"
 
 cat >>  $LOGFILE <<< "bashrc...\c"
 source ~/.bashrc
