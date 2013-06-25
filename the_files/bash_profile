@@ -1,8 +1,8 @@
 LOGFILE=~/bash_boost.log
 
-echo -e "bash_profile...\c" >> $LOGFILE
+cat >  $LOGFILE <<< "bash_profile...\c"
 
-echo -e "bashrc...\c" >> $LOGFILE
+cat >>  $LOGFILE <<< "bashrc...\c"
 source ~/.bashrc
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

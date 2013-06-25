@@ -46,9 +46,9 @@ if user_profile.nil?
 
   puts "We will also setup a default ~/.gitconfig for you... you can change the settings from dotfiles/user_specific/#{user_profile}/gitconfig"
   puts "What do you want your full name to be for git? "
-	git_full_name = gets.chomp
-	puts "What is the email you want to use for git? "
-	git_email = gets.chomp
+  git_full_name = gets.chomp
+  puts "What is the email you want to use for git? "
+  git_email = gets.chomp
   gitconfig_template = File.read("templates/gitconfig")
   gitconfig = gitconfig_template.gsub(/<FULL_NAME>/, git_full_name).gsub(/<EMAIL>/, git_email)
   File.open("user_specific/#{user_profile}/gitconfig", "w") do |file|
@@ -94,8 +94,7 @@ end
 target = File.join(home, ".user_specific")
 `ln -s #{File.expand_path "user_specific/"}/#{user_profile}/ #{target}`
 
-target = File.join(home, ".gitconfig")
-`ln -s #{File.expand_path "user_specific/"}/#{user_profile}/gitconfig #{target}`
+`ln -s #{File.expand_path "user_specific/"}/#{user_profile}/gitconfig #{home}/.gitconfig`
 
 if File.exist?("emacs-starter-kit")
   target = File.join(home, ".emacs.d")

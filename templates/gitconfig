@@ -1,6 +1,6 @@
 [user]
-	name = Sudhindra Rao
-	email = sudhindra.r.rao@gmail.com
+  name = <FULL_NAME>
+  email = <EMAIL>
 [color]
   diff = auto
   status = auto
@@ -8,9 +8,11 @@
   interactive = auto
   ui = auto
 [alias]
+  changes=diff --name-status -r
   st=status
-  ci=commit
   co=checkout
+  ci=commit -a
+  undo=checkout -f
 [diff]
   renames = true
 [core]
@@ -23,5 +25,3 @@
   autocorrect = 1
 [push]
   default = matching
-[credential]
-	helper = cache --timeout 28800
