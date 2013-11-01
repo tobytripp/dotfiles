@@ -14,6 +14,9 @@ source ~/.bash_boost/profile_prompt.sh
 cat >> $LOGFILE <<< "rvm boost..." 
 source ~/.bash_boost/bash_rvm.sh
 
+cat >> $LOGFILE <<< "building cool prompt..." 
+source ~/.bash_boost/build_prompt.sh
+
 cat >> $LOGFILE <<< "aliases..." 
 source ~/.aliases
 
