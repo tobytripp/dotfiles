@@ -45,4 +45,8 @@ source ~/.bash_boost/java_functions.sh
 cat >> $LOGFILE <<< "user specific boost..." 
 source ~/.user_specific/loader
 
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 cat >> $LOGFILE <<< "--- Boost process Successful and Complete!"
