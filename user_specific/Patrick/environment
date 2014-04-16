@@ -1,2 +1,1 @@
 export EDITOR="subl -w"
-export CC="/usr/bin/gcc-4.2"
