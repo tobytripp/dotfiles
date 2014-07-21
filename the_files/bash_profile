@@ -6,4 +6,26 @@ cat >>  $LOGFILE <<< "bashrc...\c"
 
 source ~/.bashrc
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+cat >> $LOGFILE <<< "cd command boost..."
+source ~/.bash_boost/cdargs-bash.sh
+source ~/.bash_boost/cdargs.sh
+
+cat >> $LOGFILE <<< "version control boost..."
+source ~/.bash_boost/bash_vcs.sh
+
+cat >> $LOGFILE <<< "rvm boost..."
+source ~/.bash_boost/bash_rvm.sh
+
+cat >> $LOGFILE <<< "rbenv boost..."
+source ~/.bash_boost/bash_rbenv.sh
+
+cat >> $LOGFILE <<< "custom prompt..."
+source ~/.bash_boost/profile_prompt.sh
+
+cat >> $LOGFILE <<< "building cool prompt..."
+source ~/.bash_boost/build_prompt.sh
+
+cat >> $LOGFILE <<< "terminal_colors..."
+source ~/.bash_boost/terminal_colors
+
+cat >> $LOGFILE <<< "--- Boost process Successful and Complete!"

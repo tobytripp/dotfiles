@@ -3,7 +3,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 LOGFILE=~/bash_boost.log
-cat > $LOGFILE <<< "--- Attempting to boost your bash..."
+cat > $LOGFILE <<< "--- Attempting to boost your bash non login..."
 
 cat >> $LOGFILE <<< "history boost..."
 source ~/.history
@@ -11,36 +11,10 @@ source ~/.history
 cat >> $LOGFILE <<< "aliases..."
 source ~/.aliases
 
-cat >> $LOGFILE <<< "cd command boost..."
-source ~/.bash_boost/cdargs-bash.sh
-source ~/.bash_boost/cdargs.sh
-
-cat >> $LOGFILE <<< "version control boost..."
-source ~/.bash_boost/bash_vcs.sh
-
-cat >> $LOGFILE <<< "custom prompt..."
-source ~/.bash_boost/profile_prompt.sh
-
-cat >> $LOGFILE <<< "rvm boost..."
-source ~/.bash_boost/bash_rvm.sh
-
-cat >> $LOGFILE <<< "rbenv boost..."
-source ~/.bash_boost/bash_rbenv.sh
-
-cat >> $LOGFILE <<< "building cool prompt..."
-source ~/.bash_boost/build_prompt.sh
-
-cat >> $LOGFILE <<< "terminal_colors..."
-source ~/.bash_boost/terminal_colors
-
 cat >> $LOGFILE <<< "environment..."
 source ~/.os_specific/loader
 
 cat >> $LOGFILE <<< "user specific boost..."
 source ~/.user_specific/loader
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-cat >> $LOGFILE <<< "--- Boost process Successful and Complete!"
+cat >> $LOGFILE <<< "--- Boost process for non login shell Complete!"
