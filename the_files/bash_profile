@@ -3,8 +3,7 @@ LOGFILE=~/bash_boost.log
 cat >  $LOGFILE <<< "bash_profile...\c"
 
 cat >>  $LOGFILE <<< "bashrc...\c"
+
 source ~/.bashrc
 
-test -s "$HOME/.rvm/scripts/rvm" && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-test -s rbenv && eval "$(rbenv init -)"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
