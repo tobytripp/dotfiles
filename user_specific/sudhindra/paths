@@ -6,4 +6,8 @@ export CLJR_PATH="~/.cljr"
 
 export LEIN_PATH="/usr/local/bin"
 
-export PATH="$PATH:$NODE_PATH/bin:$CLJR_PATH/bin"
+export MONGODB_DATA="~/code/mongodb/data"
+
+export PATH="$PATH:$NODE_PATH/bin:$CLJR_PATH/bin:$MONGODB_DATA"
+
+export NVM_DIR="~/.nvm"

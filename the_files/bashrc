@@ -18,3 +18,8 @@ cat >> $LOGFILE <<< "user specific boost..."
 source ~/.user_specific/loader
 
 cat >> $LOGFILE <<< "--- Boost process for non login shell Complete!"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+export NVM_DIR="/Users/srao/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

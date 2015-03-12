@@ -19,3 +19,5 @@ profile
 
 # Sublime Text Project noise
 *.sublime
+
+.bundle
