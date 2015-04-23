@@ -48,3 +48,5 @@ CABAL_BIN=$HOME/.cabal/bin
 if [[ -s $CABAL_BIN ]]; then export PATH=$CABAL_BIN:$PATH; fi
 
 export PATH=~/bin:/usr/local/bin:$PATH
+# Booooo
+export SSL_CERT_FILE=~/.rbenv/versions/1.9.3-p392/lib/ruby/1.9.1/rubygems/ssl_certs/ca-bundle.pem

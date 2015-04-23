@@ -39,9 +39,9 @@ if [[ -d $NODE_PATH ]]; then
 fi
 
 export CFLAGS=-Wno-error=shorten-64-to-32
-export RUBY_CONFIGURE_OPTS=--with-openssl-dir=`brew --prefix openssl`
 export CONFIGURE_OPTS=--with-readline-dir=`brew --prefix readline`
 export JAVA_HOME=`/usr/libexec/java_home`
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` ${CONFIGURE_OPTS}"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 [[ -d $HOME/bin/magic-dollar ]] && export PATH=$PATH":$HOME/bin/magic-dollar"
