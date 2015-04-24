@@ -30,7 +30,7 @@
         ci=commit -a --verbose
         undo=checkout -f
         punch=push
-        lol = log --graph --decorate --pretty=oneline --abbrev-commit
+        lol=log --graph --decorate --pretty=oneline --abbrev-commit
         unstage=reset HEAD
         uncommit=reset --soft HEAD^
 [gui]
@@ -48,9 +48,6 @@
         autocorrect = 1
 [push]
         default = current
-[github]
-        user = tobytripp
-        token = ecff5b9c54eeb9a495c37bd4429a1ddc
 [git-pair]
         authors = Toby Tripp <ttripp@backstopsolutions.com>
 [rerere]
