@@ -4,11 +4,6 @@ source $HOME/.bashrc
 source $HOME/.bash_vcs.sh
 source $HOME/.bash_login
 
-source $HOME/.jumplist/j.sh
-source $HOME/.mategem.sh
-
-source $HOME/bin/cdargs-bash.sh
-
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
@@ -25,9 +20,6 @@ export LANG=en_US.UTF-8
 
 export TMUX_SOCK=/var/tmux/pairing
 
-
-source $HOME/.ssh_agent.sh
-
 if [ -f ${BASH}/bash_it.sh ]; then
     source ${BASH}/bash_it.sh
 fi
@@ -40,7 +32,7 @@ fi
 
 export CFLAGS=-Wno-error=shorten-64-to-32
 export CONFIGURE_OPTS=--with-readline-dir=`brew --prefix readline`
-export JAVA_HOME=`/usr/libexec/java_home`
+# export JAVA_HOME=`/usr/libexec/java_home`
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` ${CONFIGURE_OPTS}"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
