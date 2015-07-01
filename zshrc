@@ -1,6 +1,6 @@
 # -*- mode: sh -*-
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/ttripp/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -37,7 +37,7 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -46,27 +46,31 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rbenv)
+plugins=(brew git ruby rbenv tmux)
 
 # User configuration
-
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/MacGPG2/bin:/Users/ttripp/.rbenv/shims:/Users/ttripp/.rbenv/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/local/oracle/instantclient_11_2:/Users/ttripp/bin:/Users/ttripp/.cabal/bin:/Users/ttripp/bin/magic-dollar:/Users/ttripp/.rbenv/shems:/usr/local/git/bin/:/Users/ttripp/.rvm/bin"
+export PATH=$HOME/bin:$HOME/.rbenv/shims:$HOME/.rbenv/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LC_CTYPE=
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+    export EDITOR='vim'
+elif [[ -n $INSIDE_EMACS ]]; then
+    export EDITOR='emacsclient'
+else
+    export EDITOR='emacsclient -t'
+fi
+
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
@@ -79,6 +83,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-export PATH=$PATH:$HOME/.rbenv/shims
-
