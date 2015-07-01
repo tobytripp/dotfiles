@@ -33,8 +33,6 @@
         lol=log --graph --decorate --pretty=oneline --abbrev-commit
         unstage=reset HEAD
         uncommit=reset --soft HEAD^
-[gui]
-        recentrepo = /Users/toby/Code/Ruby/specr
 [core]
         excludesfile = /Users/toby/.gitignore
         whitespace   = trailing-space,cr-at-eol
@@ -48,7 +46,5 @@
         autocorrect = 1
 [push]
         default = current
-[git-pair]
-        authors = Toby Tripp <ttripp@backstopsolutions.com>
 [rerere]
         enabled = true

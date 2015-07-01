@@ -82,3 +82,7 @@ export ARCHFLAGS="-arch x86_64"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+eval "$(rbenv init -)"
+export INFOPATH="$(brew --prefix)/share/info:/usr/share/info"
+
+export EDITOR="emacsclient -nw"
