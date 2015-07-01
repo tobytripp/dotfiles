@@ -1,0 +1,41 @@
+* Toby's dotfiles
+
+  My UNIX dotfiles bared for the world to see.
+
+** Installation
+
+   #+BEGIN_SRC sh
+   git clone https://github.com/tobytripp/dotfiles.git dotfiles
+   cd dotfiles
+   ruby install.rb
+   #+END_SRC
+
+   alternatively:
+
+   #+BEGIN_SRC sh
+   bash < <( curl https://github.com/tobytripp/dotfiles/raw/master/local-install.sh )
+   #+END_SRC
+
+   But don't do that.  Piping strange scripts into your shell is
+   stupid.  Don't.  Just don't.
+
+** Remote Server Installation
+
+   The repository contains a script for setting up some bare-bones
+   dotfiles on remote servers.  These files include things like screen
+   configuration, a simple bashrc, and the sort.
+
+   It can be installed with (but see above):
+
+   #+BEGIN_SRC sh
+   bash < <( curl https://github.com/tobytripp/dotfiles/raw/master/remote-install.sh )
+   #+END_SRC
+
+   This just clones or updates the repository and links back bashrc and screenrc.
+
+
+** Host-specific Settings
+
+   Bash settings specific to a particular host may be stored in
+   `$HOME/.hostname`.  Any files in that directory will be sourced by
+   `.bashrc` when logged into that host.
