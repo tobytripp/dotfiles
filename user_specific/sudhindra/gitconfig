@@ -19,6 +19,7 @@
   summary = true
 [branch]
   autosetupmerge = true
+  mergeoptions = --no-ff
 [help]
   autocorrect = 1
 [push]

@@ -1,0 +1,6 @@
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+alias features_server='ssh -p 10228 -i ~/.ssh/aws_glooko deployer@ec2-54-208-153-201.compute-1.amazonaws.com'
+alias prod_server_371='ssh -p 10371 -i ~/.ssh/aws_glooko deployer@ec2-54-208-153-201.compute-1.amazonaws.com'
+alias prod_server_186='ssh -p 10186 -i ~/.ssh/aws_glooko deployer@ec2-54-208-153-201.compute-1.amazonaws.com'
+alias gocd='ssh -i ~/.ssh/gocd_server.pem ubuntu@54.227.243.76'
