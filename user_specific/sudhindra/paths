@@ -11,3 +11,7 @@ export MONGODB_DATA="~/code/mongodb/data"
 export PATH="$PATH:$NODE_PATH/bin:$CLJR_PATH/bin:$MONGODB_DATA"
 
 export NVM_DIR="~/.nvm"
+
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+export EC2_HOME=~/code/aws/ec2-api-tools
