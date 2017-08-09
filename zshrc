@@ -24,7 +24,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -49,7 +49,7 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(git rbenv ruby brew tmux)
 
 # User configuration
-export PATH=$HOME/bin:$HOME/.rbenv/shims:$HOME/.rbenv/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -58,6 +58,10 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LC_CTYPE=
+
+if [[ -e /usr/local/share/zsh/site-functions/_aws ]]; then
+    source /usr/local/share/zsh/site-functions/_aws
+fi
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -85,4 +89,14 @@ export ARCHFLAGS="-arch x86_64"
 eval "$(rbenv init -)"
 export INFOPATH="$(brew --prefix)/share/info:/usr/share/info"
 
-export EDITOR="emacsclient -nw"
+export RUBY_CONFIGURE_OPTS=--with-readline-dir=`brew --prefix readline`
+export PATH="/usr/local/sbin:$PATH"
+
+source ~/.environment
+source ~/.aliases
+
+PATH="/Users/toby/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/toby/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/toby/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/toby/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/toby/perl5"; export PERL_MM_OPT;
