@@ -1,0 +1,25 @@
+# -*- mode: sh -*-
+export LAUNCHCTL_ENV_VARS="$HOME/.launchctl_env_vars"
+if [ -f $LAUNCHCTL_ENV_VARS ] ; then rm $LAUNCHCTL_ENV_VARS; fi
+
+set_env() {
+    eval export $1=\""$2"\"
+    set_launchctl_env "$1" "$2"
+}
+
+unset_env() {
+    unset $1
+    unset_launchctl_env "$1"
+}
+
+set_launchctl_env () {
+    eval launchctl setenv "$1" \""$2"\"
+    echo launchctl setenv "$1" \""$2"\" >>$LAUNCHCTL_ENV_VARS
+}
+
+unset_launchctl_env () {
+    eval launchctl unsetenv "$1"
+    echo launchctl unsetenv "$1" >>$LAUNCHCTL_ENV_VARS
+}
+
+set_env PATH "/usr/local/opt/rbenv/shims:${PATH}"
