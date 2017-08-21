@@ -1,0 +1,8 @@
+#!/bin/bash
+SOCKET_PATH=/tmp/tmux_shareds
+SESSION=pairing
+TMUX_EX=/usr/local/bin/tmux
+
+$TMUX_EX $* -S $SOCKET_PATH new-session -s $SESSION || \
+    $TMUX_EX $* -S $SOCKET_PATH attach -t $SESSION
+

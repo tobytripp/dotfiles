@@ -37,12 +37,7 @@ end
 
 file MESSAGE_FILE => ".spec.last_push" do |t|
   File.open( t.name, "w" ) do |f|
-    f.puts "#{ENV["LOGNAME"]}: "
-    f.puts
-    f.puts "# Next commit-message"
-    f.puts "#"
-    f.puts "# This message will apply to all auto-commits until"
-    f.puts "# your next call to `rake spec:push`."
+    f.puts "#{ENV["LOGNAME"]}: Tests passing [TRACKER_ID]"
     f.puts
   end
 
@@ -133,7 +128,6 @@ end
 
 file ".spec.last_push" => [".spec.acceptance.passed"] do |t|
   `emacsclient -e '(magit-status)'`
-  rm_f MESSAGE_FILE
   File.open( t.name, "a" ) { |f| f.puts Time.now.iso8601 }
 end
 

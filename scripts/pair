@@ -2,10 +2,13 @@
 SOCKET_PATH=/tmp/tmux_shareds
 SESSION=pairing
 USER=goldstar
-MACHINE=${1:-toby.local}
+MACHINE=${1:-`hostname`}
 TMUX=/usr/local/bin/tmux
 
-CMD="$TMUX -S $SOCKET_PATH new-session -s $SESSION || $TMUX -S $SOCKET_PATH attach -t $SESSION"
+CMD=<<EOF
+   $TMUX -S $SOCKET_PATH new-session -s $SESSION || \
+   $TMUX -S $SOCKET_PATH attach -t $SESSION
+EOF
 
 case "$1" in
     start|serve) $TMUX -S $SOCKET_PATH new-session -s $SESSION; ;;

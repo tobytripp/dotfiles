@@ -1,6 +1,7 @@
 [User]
         name  = Toby Tripp
         email = toby.tripp+github@gmail.com
+	signingkey = 7221D0C137625571
 [color]
         diff        = auto
         status      = auto
