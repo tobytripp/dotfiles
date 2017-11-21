@@ -15,12 +15,12 @@ namespace :tags do
       Diff::LCS.diff( File.read( a ).lines,
                       File.read( b ).lines ).empty?
     else
-      system :diff, "-q", a, b
+      system "diff", "-q", a, b
     end
   end
 
   file TAG_FILE => SOURCES.exclude( "**/*_spec.rb" ) do |t|
-    cp TAG_FILE, ".TAGS.last"
+    cp TAG_FILE, ".TAGS.last" if File.exist? TAG_FILE
     sh( *["ripper-tags", "-R", EXCLUDES, "-ef", ".TAGS", PATHS.to_a].flatten )
     unless diff( TAG_FILE, ".TAGS.last")
       sh( %{emacsclient -e '(visit-project-tags)'} )

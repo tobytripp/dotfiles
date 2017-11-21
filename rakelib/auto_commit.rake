@@ -1,7 +1,7 @@
 # -*- coding: utf-8; mode: ruby -*-
 # frozen_string_literal: true
 
-MESSAGE_FILE = ".AUTO_COMMIT_EDIT_MSG"
+MESSAGE_FILE = ".gitmessage"
 PROGRAM_TEMPLATE = <<EMACS_LISP
 (let ((directory "<%= dir %>")
       (msg-log   "<%= template %>"))
@@ -35,17 +35,18 @@ def do_commit( *args )
   end
 end
 
-file MESSAGE_FILE => ".spec.last_push" do |t|
+file MESSAGE_FILE do |t|
   File.open( t.name, "w" ) do |f|
     f.puts "#{ENV["LOGNAME"]}: Tests passing [TRACKER_ID]"
+    f.puts "# Long Description"
     f.puts
+    f.puts "#   Add Finishes|Fixes|Delivers before TRACKER_ID to update"
+    f.puts "#   the story's status on Pivotal.\n"
   end
-
-  do_commit "-e"
 end
 
 desc "Commit current changes via magit"
-task :commit do
+task :commit => MESSAGE_FILE do
   if (t = Rake::Task[MESSAGE_FILE]).needed?
     t.invoke
   else
@@ -98,54 +99,56 @@ module Toby
           end
         end
       end
-    end
-  end
-end
+                end
+                end
+                end
 
-SOURCES          = Rake::FileList["lib/**/*.rb", "app/**/*.rb"]
-ACCEPTANCE_SPECS =
-  Rake::FileList["spec/features/**/*_spec.rb", "features/**/*.feature"]
-UNIT_SPECS       =
-  Rake::FileList["spec/lib/**/*_spec.rb"].exclude ACCEPTANCE_SPECS
+                SOURCES = Rake::FileList.new unless defined? SOURCES
+                SOURCES.include "lib/**/*.rb", "app/**/*.rb"
 
-unless Rake::Task.task_defined?( ".spec.unit.passed" )
-  file ".spec.unit.passed" => [*SOURCES, *UNIT_SPECS] do |t|
-    Rake::Task["spec:unit"].invoke
-    File.open( t.name, "a" ) { |f| f.puts Time.now.iso8601 }
-  end
-end
+                ACCEPTANCE_SPECS =
+                  Rake::FileList["spec/features/**/*_spec.rb", "features/**/*.feature"]
+                UNIT_SPECS       =
+                  Rake::FileList["spec/lib/**/*_spec.rb"].exclude ACCEPTANCE_SPECS
 
-unless Rake::Task.task_defined?( ".spec.acceptance.passed" )
-  file ".spec.acceptance.passed" => [".spec.unit.passed", *ACCEPTANCE_SPECS] do |t|
-    if Rake::Task.task_defined?( "spec:pacceptance" )
-      Rake::Task["spec:pacceptance"].invoke 8
-    else
-      Rake::Task["spec:acceptance"]
-    end
-    File.open( t.name, "a" ) { |f| f.puts Time.now.iso8601 }
-  end
-end
+                unless Rake::Task.task_defined?( ".spec.unit.passed" )
+                  file ".spec.unit.passed" => [*SOURCES, *UNIT_SPECS] do |t|
+                    Rake::Task["spec:unit"].invoke
+                    File.open( t.name, "a" ) { |f| f.puts Time.now.iso8601 }
+                  end
+                end
 
-file ".spec.last_push" => [".spec.acceptance.passed"] do |t|
-  `emacsclient -e '(magit-status)'`
-  File.open( t.name, "a" ) { |f| f.puts Time.now.iso8601 }
-end
+                unless Rake::Task.task_defined?( ".spec.acceptance.passed" )
+                  file ".spec.acceptance.passed" => [".spec.unit.passed", *ACCEPTANCE_SPECS] do |t|
+                    if Rake::Task.task_defined?( "spec:pacceptance" )
+                      Rake::Task["spec:pacceptance"].invoke 8
+                    else
+                      Rake::Task["spec:acceptance"]
+                    end
+                    File.open( t.name, "a" ) { |f| f.puts Time.now.iso8601 }
+                  end
+                end
 
-namespace :spec do
-  desc "Run unit specs, commit changes on pass (via magit)"
-  task :checkin => [:clean, ".spec.unit.passed", :commit]
+                file ".spec.last_push" => [".spec.acceptance.passed"] do |t|
+                  `emacsclient -e '(magit-status)'`
+                  File.open( t.name, "a" ) { |f| f.puts Time.now.iso8601 }
+                end
 
-  desc "if unit and acceptance specs pass, push changes (via magit)"
-  task :push    => [".spec.last_push"]
+                namespace :spec do
+                  desc "Run unit specs, commit changes on pass (via magit)"
+                  task :checkin => [:clean, ".spec.unit.passed", :commit]
 
-  if defined? RSpec
-    desc "Run acceptance specs"
-    RSpec::Core::RakeTask.new( :acceptance ) do |t|
-      t.pattern    = "{,spec/}features/**/*_spec.rb"
-      t.rspec_opts = "--format documentation"
-      if ENV["GUARD_NOTIFIERS"]
-        t.rspec_opts += " -r guard/rspec_formatter --format Guard::RSpecFormatter"
-      end
-    end
-  end
-end
+                  desc "if unit and acceptance specs pass, push changes (via magit)"
+                  task :push    => [".spec.last_push"]
+
+                  if defined? RSpec
+                    desc "Run acceptance specs"
+                    RSpec::Core::RakeTask.new( :acceptance ) do |t|
+                      t.pattern    = "{,spec/}features/**/*_spec.rb"
+                      t.rspec_opts = "--format documentation"
+                      if ENV["GUARD_NOTIFIERS"]
+                        t.rspec_opts += " -r guard/rspec_formatter --format Guard::RSpecFormatter"
+                      end
+                    end
+                  end
+                end
