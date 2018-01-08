@@ -1,7 +1,7 @@
 # -*- coding: utf-8; mode: ruby -*-
 # frozen_string_literal: true
 
-MESSAGE_FILE = ".gitmessage"
+MESSAGE_FILE = ".auto-commit-message"
 PROGRAM_TEMPLATE = <<EMACS_LISP
 (let ((directory "<%= dir %>")
       (msg-log   "<%= template %>"))
