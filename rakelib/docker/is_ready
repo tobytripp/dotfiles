@@ -1,0 +1,22 @@
+#!/bin/bash
+COMPONENT=${1:-REPL}
+PORT=${2:-5888}
+MAX_ATTEMPTS=300
+DELAY=0.5
+ATTEMPTS=0
+
+echo "Waiting for ${COMPONENT} on port ${PORT}…"
+
+while ! nc -z localhost $PORT && (( ATTEMPTS < MAX_ATTEMPTS )); do
+    ATTEMPTS=$((ATTEMPTS + 1))
+    sleep $DELAY
+    echo -n '.'
+done
+echo
+if  (( ATTEMPTS < MAX_ATTEMPTS )); then
+    echo -n "<${ATTEMPTS}> "; echo "${ATTEMPTS} * ${DELAY}" | bc
+    echo "${COMPONENT} ready on container port ${PORT}"
+    exit 0
+else
+    exit 1
+fi

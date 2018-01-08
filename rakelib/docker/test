@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+export LEIN="lein update-in :local-repo str \"${M2_REPO:-.m2}\" --"
+exec $LEIN test $@
