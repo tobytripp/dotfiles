@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+DIR=`pwd`
+CMD="(cider-connect \"127.0.0.1\" \"7888\" \"$DIR\")"
+
+echo "Command: $CMD"
+emacsclient -e "$CMD"
