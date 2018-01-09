@@ -1,0 +1,26 @@
+#!/bin/bash
+SOCKET_PATH=/tmp/tmux_shareds
+USER=goldstar
+SESSION=${2:-pairing}
+MACHINE=${3:-toby.local}
+TMUX=/usr/local/bin/tmux
+TMUX_S="$TMUX -S $SOCKET_PATH"
+CMD="$TMUX -S $SOCKET_PATH new-session -s $SESSION || $TMUX -S $SOCKET_PATH attach -t $SESSION"
+
+case "$1" in
+    start|serve)
+        $TMUX_S new-session -s $SESSION -c `pwd` -n "Commit OFTEN" -d \
+                "git status; $SHELL -i";
+        $TMUX_S new-window  -t $SESSION:2 -n "SIMPLE Design" -d \
+                $SHELL -i -c "emacsclient -t -a '' ." \; \
+                split-window -v -d -c bundle exec guard;
+        $TMUX_S new-window  -t $SESSION:3 -n "Tests DRIVE Quality" -d \
+                "tail -fF log/**/*.log; $SHELL -i";
+        $TMUX_S attach-session -t $SESSION;
+
+        ;;
+    attach) $TMUX -S $SOCKET_PATH attach; ;;
+    list) $TMUX -S $SOCKET_PATH list-sessions; ;;
+    *) ssh $USER@$MACHINE -t $CMD; ;;
+esac
+
