@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # A script to install some bare-bones dotfiles for use on remote servers.
-# 
+#
 # Usage:
 #  bash < <( curl http://github.com/tobytripp/dotfiles/raw/master/remote-install.sh )
 
@@ -15,7 +15,7 @@ else
     pushd $DOTFILE_PATH
 fi
 
-for dotfile in screenrc bashrc
+for dotfile in screenrc bashrc zshrc
 do
     ln -s $DOTFILE_PATH/$dotfile ~/.$dotfile
 done

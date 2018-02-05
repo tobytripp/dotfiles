@@ -49,7 +49,8 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(git rbenv ruby brew tmux)
 
 # User configuration
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export RBENV_ROOT=$HOME/.rbenv
+export PATH=$HOME/Library/Haskell/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -86,7 +87,6 @@ export ARCHFLAGS="-arch x86_64"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-eval "$(rbenv init -)"
 export INFOPATH="$(brew --prefix)/share/info:/usr/share/info"
 
 export RUBY_CONFIGURE_OPTS=--with-readline-dir=`brew --prefix readline`
