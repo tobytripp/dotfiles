@@ -46,7 +46,7 @@
 [help]
         autocorrect = 1
 [push]
-        default = current
+	default = simple
 [rerere]
         enabled = true
 [filter "lfs"]
