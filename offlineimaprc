@@ -1,68 +1,45 @@
-# Sample minimal config file.  Copy this to ~/.offlineimaprc and edit to
-# get started fast.
+# -*- mode: conf-unix -*-
 
 [general]
-accounts = GoldstarGmail
+accounts = Gmail
 maxsyncaccounts = 3
 pythonfile = ~/.offlineimap.py
+socktimeout = 60
+fsync = False
 
-[Account GoldstarGmail]
+[Account Gmail]
 localrepository  = Local
 remoterepository = Remote
 postsynchook = mu index --maildir ~/Maildir
+# autorefresh = 15
+quick = 10
+maxage = 2017-06-01
+synclabels = yes
+labelsheader = X-Keywords
+ignorelabels = \Sent, \Trash
+status_backend = sqlite
 
 [Repository Local]
-type = Maildir
+type = GmailMaildir
 localfolders = ~/Maildir
+sync_deletes = no
+# nametrans = lambda folder: {'archive': '[Gmail]/All Mail', '': ''}.get(folder, folder)
+nametrans = lambda f: '[Gmail]/' + f if f in ['Drafts', 'Starred', 'Important', 'Spam', 'Trash', 'All Mail', 'Sent Mail'] else f
 
 [Repository Remote]
 type = Gmail
-remotehost = imap.gmail.com
-remoteuser = ttripp@goldstarlearning.com
-remotepasseval = get_password_emacs("imap.gmail.com", "ttripp@goldstarlearning.com", "993")
-ssl = yes
-maxconnections = 1
+#remotehost = imap.gmail.com
+remoteuser = toby.tripp@gmail.com
+remotepasseval = get_password_emacs("imap.gmail.com", "toby.tripp@gmail.com", "993")
+#ssl = yes
+maxconnections = 2
 realdelete = no
 #auth_mechanisms = XOAUTH2, GSSAPI
 sslcacertfile = /usr/local/etc/openssl/cert.pem
 holdconnectionopen = true
 keepalive = 60
-# cert_fingerprint=6d1b5b5ee0180ab493b71d3b94534b5ab937d042
-# This option stands in the [Repository RemoteExample] section.
-#
-# XOAuth2 authentication (for instance, to use with Gmail).
-#
-# This feature is currently EXPERIMENTAL (tested on Gmail only, but should work
-# with type = IMAP for compatible servers).
-#
-# Mandatory parameters are "oauth2_client_id", "oauth2_client_secret" and
-# "oauth2_refresh_token". See below to learn how to get those.
-#
-# Specify the OAuth2 client id and secret to use for the connection..
-# Here's how to register an OAuth2 client for Gmail, as of 10-2-2016:
-#    - Go to the Google developer console
-#         https://console.developers.google.com/project
-#    - Create a new project
-#    - In API & Auth, select Credentials
-#    - Setup the OAuth Consent Screen
-#    - Then add Credentials of type OAuth 2.0 Client ID
-#    - Choose application type Other; type in a name for your client
-#    - You now have a client ID and client secret
-#
-#oauth2_client_id = YOUR_CLIENT_ID
-#oauth2_client_secret = YOUR_CLIENT_SECRET
-# oauth2_client_id = 612585300623-nljbgbngcphrspf2o7n0lb2ddckikfaj.apps.googleusercontent.com
-# oauth2_client_secret = Hjw7WSOA18t_T-Wafk8u0NXn
-
-# Specify the refresh token to use for the connection to the mail server.
-# Here's an example of a way to get a refresh token:
-#    - Clone this project: https://github.com/google/gmail-oauth2-tools
-#    - Type the following command-line in a terminal and follow the instructions
-#         python python/oauth2.py --generate_oauth2_token \
-#            --client_id=YOUR_CLIENT_ID --client_secret=YOUR_CLIENT_SECRET
-#
-#oauth2_refresh_token = REFRESH_TOKEN
-# oauth2_refresh_token = 1/W0CYr895V81WzZD6bypASUbm9y3d50Rrwqi2Oaf7V0IMEudVrK5jSpoR30zcRFq6
-
-
-# https://github.com/OfflineIMAP/offlineimap/issues/103
+nametrans = lambda f: f.replace('[Gmail]/', '') if f.startswith('[Gmail]/') else f
+# nametrans = lambda folder: {'[Gmail]/All Mail': 'archive'}.get(folder, folder)
+## discover GMail ``folders'' with: `offlineimap --info`
+# folderfilter = lambda foldername: not re.search( '(^Groups|Draft|Trash)', foldername )
+folderfilter = lambda folder: folder in ['[Gmail]/All Mail', 'INBOX']

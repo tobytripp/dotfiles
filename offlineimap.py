@@ -9,7 +9,7 @@ def get_password_emacs(machine, login, port):
 
 
 def main():
-    get_password_emacs("imap.gmail.com", "ttripp@goldstarlearning.com", "993")
+    get_password_emacs("imap.gmail.com", "toby.tripp@gmail.com", "993")
 
 if __name__ == "__main__":
     main()
