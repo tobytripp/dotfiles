@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 require "pathname"
+require "rake/clean"
 
 namespace :encryption do
   namespace :keys do

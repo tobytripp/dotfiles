@@ -1,3 +1,5 @@
+load File.expand_path "~/.rake"
+
 desc "Load environment files into ENV"
 dtask :env do
   require "bundler"
