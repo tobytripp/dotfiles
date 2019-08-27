@@ -96,6 +96,8 @@ export INFOPATH="$(brew --prefix)/share/info:/usr/share/info"
 
 export RUBY_CONFIGURE_OPTS=--with-readline-dir=`brew --prefix readline`
 export PATH="/usr/local/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/libffi/lib"
+export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
 
 source ~/.environment
 source ~/.aliases
