@@ -46,7 +46,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ruby brew tmux)
+plugins=(git ruby brew)
 
 # User configuration
 
@@ -94,7 +94,7 @@ export ARCHFLAGS="-arch x86_64"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export INFOPATH="$(brew --prefix)/share/info:/usr/share/info"
 
-export RUBY_CONFIGURE_OPTS=--with-readline-dir=`brew --prefix readline`
+export RUBY_CONFIGURE_OPTS="--with-readline-dir=$(brew --prefix readline) --with-openssl-dir=$(brew --prefix openssl@1.1)"
 export PATH="/usr/local/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/libffi/lib"
 export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
