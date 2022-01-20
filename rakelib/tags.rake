@@ -1,3 +1,5 @@
+# -*- mode: ruby -*-
+
 begin
   require "diff/lcs"
 rescue LoadError
