@@ -6,5 +6,7 @@ alias gti=git
 alias rtags="find . -name '*.rb' | xargs /usr/local/bin/ctags -a -e -f TAGS"
 alias node="env NODE_NO_READLINE=1 node"
 
-alias dc='docker-compose'
-alias dce='docker-compose exec app'
+alias dc='docker compose'
+alias dce='docker compose exec app'
+
+alias migrate='bundle exec rake db:migrate db:test:prepare'
