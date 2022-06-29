@@ -5,7 +5,7 @@
 home = File.expand_path('~')
 
 Dir['*'].each do |file|
-  next if file =~ /install/
+  next if file =~ /install|README/
   target = File.join(home, ".#{file}")
   `ln -si #{File.expand_path file} #{target}`
 end
