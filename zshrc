@@ -50,6 +50,8 @@ plugins=(git ruby brew rbenv)
 
 # User configuration
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # RBENV
 export RBENV_ROOT=$HOME/.rbenv
 export PATH=$HOME/.rbenv/shims:${PATH}
@@ -79,7 +81,7 @@ else
 fi
 
 # Compilation flags
-export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch x86_64"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
@@ -96,7 +98,6 @@ export INFOPATH="$(brew --prefix)/share/info:/usr/share/info"
 
 export RUBY_CONFIGURE_OPTS="--with-readline-dir=$(brew --prefix readline) --with-openssl-dir=$(brew --prefix openssl@1.1)"
 export PATH="/usr/local/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/libffi/lib"
 export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
 
 export NVM_DIR="$HOME/.nvm"
@@ -104,5 +105,3 @@ export NVM_DIR="$HOME/.nvm"
 
 source ~/.environment
 source ~/.aliases
-
-export PATH="/usr/local/opt/elasticsearch@6/bin:$PATH"
