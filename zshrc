@@ -46,10 +46,20 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rbenv tmux)
+plugins=(git ruby brew rbenv)
 
 # User configuration
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# RBENV
 export RBENV_ROOT=$HOME/.rbenv
+export PATH=$HOME/.rbenv/shims:${PATH}
+export RBENV_SHELL=zsh
+
+# Haskell and Emacs
+export PATH=$HOME/Library/Haskell/bin:$HOME/.emacs.d/bin:$PATH
+
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -71,7 +81,7 @@ else
 fi
 
 # Compilation flags
-export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch x86_64"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
@@ -85,11 +95,12 @@ export ARCHFLAGS="-arch x86_64"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export INFOPATH="$(brew --prefix)/share/info:/usr/share/info"
-export PATH="$(brew --prefix)/bin:/usr/local/sbin:$PATH"
-export RUBY_CONFIGURE_OPTS=--with-readline-dir=`brew --prefix readline`
+
+export RUBY_CONFIGURE_OPTS="--with-readline-dir=$(brew --prefix readline) --with-openssl-dir=$(brew --prefix openssl@1.1)"
+export PATH="/usr/local/bin:$PATH"
+export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
 
 source ~/.aliases
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-eval "$(stack --bash-completion-script stack)"

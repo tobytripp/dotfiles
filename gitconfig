@@ -58,3 +58,7 @@
 	process = git-lfs filter-process
 [commit]
 	gpgsign = true
+[pull]
+	rebase = true
+[gpg]
+	program = gpg2

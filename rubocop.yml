@@ -1,0 +1,9 @@
+--
+Layout/DotPosition:
+  EnforcedStyle: trailing
+Layout/ElseAlignment:
+  Disabled: true
+Style/MultilineBlockChain:
+  Disabled: true
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
