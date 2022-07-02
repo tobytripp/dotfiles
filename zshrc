@@ -46,13 +46,10 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rbenv ruby brew tmux)
+plugins=(git rbenv tmux)
 
 # User configuration
 export RBENV_ROOT=$HOME/.rbenv
-export PATH=$HOME/Library/Haskell/bin:$PATH
-# export MANPATH="/usr/local/man:$MANPATH"
-
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -88,17 +85,11 @@ export ARCHFLAGS="-arch x86_64"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export INFOPATH="$(brew --prefix)/share/info:/usr/share/info"
-
+export PATH="$(brew --prefix)/bin:/usr/local/sbin:$PATH"
 export RUBY_CONFIGURE_OPTS=--with-readline-dir=`brew --prefix readline`
-export PATH="/usr/local/sbin:$PATH"
 
-source ~/.environment
 source ~/.aliases
 
-PATH="/Users/toby/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/Users/toby/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/toby/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/toby/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/toby/perl5"; export PERL_MM_OPT;
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+eval "$(stack --bash-completion-script stack)"
